@@ -348,7 +348,7 @@
                 
                   <h1>Event</h1>
                 
-                <p><code>Prologue</code> supports <code>startup</code> and <code>shutdown</code> events. <code>startup</code> event will be only executed once before main loop. In contrast, <code>shutdown</code> event will be executed once after main loop.</p>
+                <p><code>Prologue</code> supports both <code>startup</code> and <code>shutdown</code> events. <code>startup</code> event will be only executed once before main loop. In contrast, <code>shutdown</code> event will be executed once after main loop.</p>
 <p>Let's first look at the structure of <code>Event</code>, you can see that Event supports both synchronous and asynchronous
 closure function.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">type</span>
@@ -364,7 +364,7 @@ closure function.</p>
 </code></pre></div>
 
 
-<p>You can use <code>initEvent</code> to initiate <code>Event</code>. You pass function pointers to create <code>Event</code>.</p>
+<p>You can use <code>initEvent</code> and pass function pointers to create <code>Event</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">initEvent</span><span class="o">*</span><span class="p">(</span><span class="n">handler</span><span class="p">:</span> <span class="n">AsyncEvent</span><span class="p">):</span> <span class="n">Event</span> <span class="p">{.</span><span class="n">inline</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">Event</span><span class="p">(</span><span class="n">async</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="n">asyncHandler</span><span class="p">:</span> <span class="n">handler</span><span class="p">)</span>
 
