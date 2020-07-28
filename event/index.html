@@ -348,9 +348,8 @@
                 
                   <h1>Event</h1>
                 
-                <p><code>Prologue</code> supports both <code>startup</code> and <code>shutdown</code> events. <code>startup</code> event will be only executed once before main loop. In contrast, <code>shutdown</code> event will be executed once after main loop.</p>
-<p>Let's first look at the structure of <code>Event</code>, you can see that Event supports both synchronous and asynchronous
-closure function.</p>
+                <p><code>Prologue</code> supports both <code>startup</code> and <code>shutdown</code> events. <code>startup</code> events will be only executed once before the main loop. In contrast, <code>shutdown</code> events will be executed once after the main loop.</p>
+<p>Let's first look at the structure of <code>Event</code>, you can see that <code>Event</code> supports both synchronous and asynchronous closure function pointers.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">type</span>
   <span class="n">AsyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">():</span> <span class="n">Future</span><span class="o">[</span><span class="n">void</span><span class="o">]</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
   <span class="n">SyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">()</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
