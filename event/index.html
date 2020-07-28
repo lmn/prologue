@@ -38,7 +38,7 @@
     
     
       
-        <title>Middleware - Prologue</title>
+        <title>Event - Prologue</title>
       
     
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Middleware
+                Event
               
             </span>
           
@@ -246,11 +246,18 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../event/" title="Event" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Event" class="md-nav__link md-nav__link--active">
       Event
     </a>
+    
   </li>
 
     
@@ -306,18 +313,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Middleware" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../middleware/" title="Middleware" class="md-nav__link">
       Middleware
     </a>
-    
   </li>
 
     
@@ -346,9 +346,52 @@
               
                 
                 
-                  <h1>Middleware</h1>
+                  <h1>Event</h1>
                 
-                
+                <p><code>Prologue</code> supports <code>startup</code> and <code>shutdown</code> events. <code>startup</code> event will be only executed once before main loop. In contrast, <code>shutdown</code> event will be executed once after main loop.</p>
+<p>Let's first look at the structure of <code>Event</code>, you can see that Event supports both synchronous and asynchronous
+closure function.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">type</span>
+  <span class="n">AsyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">():</span> <span class="n">Future</span><span class="o">[</span><span class="n">void</span><span class="o">]</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
+  <span class="n">SyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">()</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
+
+  <span class="n">Event</span><span class="o">*</span> <span class="o">=</span> <span class="k">object</span>
+    <span class="k">case</span> <span class="n">async</span><span class="o">*</span><span class="p">:</span> <span class="kt">bool</span>
+    <span class="k">of</span> <span class="kp">true</span><span class="p">:</span>
+      <span class="n">asyncHandler</span><span class="o">*</span><span class="p">:</span> <span class="n">AsyncEvent</span>
+    <span class="k">of</span> <span class="kp">false</span><span class="p">:</span>
+      <span class="n">syncHandler</span><span class="o">*</span><span class="p">:</span> <span class="n">SyncEvent</span>
+</code></pre></div>
+
+
+<p>You can use <code>initEvent</code> to initiate <code>Event</code>. You pass function pointers to create <code>Event</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">initEvent</span><span class="o">*</span><span class="p">(</span><span class="n">handler</span><span class="p">:</span> <span class="n">AsyncEvent</span><span class="p">):</span> <span class="n">Event</span> <span class="p">{.</span><span class="n">inline</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">Event</span><span class="p">(</span><span class="n">async</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="n">asyncHandler</span><span class="p">:</span> <span class="n">handler</span><span class="p">)</span>
+
+<span class="k">proc </span><span class="nf">initEvent</span><span class="o">*</span><span class="p">(</span><span class="n">handler</span><span class="p">:</span> <span class="n">SyncEvent</span><span class="p">):</span> <span class="n">Event</span> <span class="p">{.</span><span class="n">inline</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">Event</span><span class="p">(</span><span class="n">async</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="n">syncHandler</span><span class="p">:</span> <span class="n">handler</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><code>newApp</code> has <code>startup</code> and <code>shutdown</code> parameters. You can pass the sequence of events to <code>newApp</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">newApp</span><span class="o">*</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span><span class="p">,</span> <span class="n">middlewares</span><span class="p">:</span> <span class="n">sink</span> <span class="kt">seq</span><span class="o">[</span><span class="n">HandlerAsync</span><span class="o">]</span> <span class="o">=</span> <span class="o">@[]</span><span class="p">,</span>
+             <span class="n">startup</span><span class="p">:</span> <span class="kt">seq</span><span class="o">[</span><span class="n">Event</span><span class="o">]</span> <span class="o">=</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">shutdown</span><span class="p">:</span> <span class="kt">seq</span><span class="o">[</span><span class="n">Event</span><span class="o">]</span> <span class="o">=</span> <span class="o">@[]</span><span class="p">,</span>
+             <span class="n">errorHandlerTable</span> <span class="o">=</span> <span class="n">DefaultErrorHandler</span><span class="p">,</span>
+             <span class="n">appData</span> <span class="o">=</span> <span class="n">newStringTable</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="n">modeCaseSensitive</span><span class="p">)):</span> <span class="n">Prologue</span> <span class="o">=</span>
+</code></pre></div>
+
+
+<p>Here is an <a href="https://github.com/planety/prologue/tree/master/examples/helloworld">example</a> for a <code>startup</code> event.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
+  <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
+  <span class="n">logging</span><span class="p">.</span><span class="n">setLogFilter</span><span class="p">(</span><span class="n">lvlInfo</span><span class="p">)</span>
+
+
+<span class="k">let</span> 
+  <span class="n">event</span> <span class="o">=</span> <span class="n">initEvent</span><span class="p">(</span><span class="n">setLoggingLevel</span><span class="p">)</span>
+<span class="kd">var</span>
+  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">debugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">,</span> <span class="n">startup</span> <span class="o">=</span> <span class="o">@[</span><span class="n">event</span><span class="o">]</span><span class="p">)</span>
+</code></pre></div>
                 
                   
                 
@@ -370,7 +413,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../route/" title="Route" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../application/" title="Application" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -379,19 +422,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Route
+                Application
               </span>
             </div>
           </a>
         
         
-          <a href="../staticfiles/" title="Static Files" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../request/" title="Requests" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Static Files
+                Requests
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
