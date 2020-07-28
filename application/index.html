@@ -506,12 +506,7 @@
 apply to every handler.</p>
 <h3 id="startup-and-shutup">Startup and ShutUp</h3>
 <p>Register event for startup and shutup.Support both sync and async proc.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">type</span>
-  <span class="n">AsyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">():</span> <span class="n">Future</span><span class="o">[</span><span class="n">void</span><span class="o">]</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
-  <span class="n">SyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">()</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
-</code></pre></div>
-
-
+<p>You can find the full usage in https://planety.github.io/prologue/event</p>
 <h3 id="error-handler">Error Handler</h3>
 <p>Map status code to error handler.</p>
                 
