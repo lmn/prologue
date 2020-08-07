@@ -17,6 +17,7 @@ options	prologue/core/application.html#options,Prologue,string,HandlerAsync,stri
 connect	prologue/core/application.html#connect,Prologue,string,HandlerAsync,string,LocalSettings	application: connect(app: Prologue; route: string; handler: HandlerAsync; name = &quot;&quot;;\n        middlewares: sink seq[HandlerAsync] = @[]; settings: LocalSettings = nil)	
 patch	prologue/core/application.html#patch,Prologue,string,HandlerAsync,string,LocalSettings	application: patch(app: Prologue; route: string; handler: HandlerAsync; name = &quot;&quot;;\n      middlewares: sink seq[HandlerAsync] = @[]; settings: LocalSettings = nil)	
 all	prologue/core/application.html#all,Prologue,string,HandlerAsync,string,LocalSettings	application: all(app: Prologue; route: string; handler: HandlerAsync; name = &quot;&quot;;\n    middlewares: sink seq[HandlerAsync] = @[]; settings: LocalSettings = nil)	
+appAddress	prologue/core/application.html#appAddress,Prologue	application: appAddress(app: Prologue): string	
 appDebug	prologue/core/application.html#appDebug,Prologue	application: appDebug(app: Prologue): bool	
 appName	prologue/core/application.html#appName,Prologue	application: appName(app: Prologue): string	
 appPort	prologue/core/application.html#appPort,Prologue	application: appPort(app: Prologue): Port	
