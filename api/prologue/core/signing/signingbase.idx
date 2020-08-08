@@ -1,4 +1,0 @@
-BadDataError	prologue/core/signing/signingbase.html#BadDataError	signingbase: BadDataError	
-BadSignatureError	prologue/core/signing/signingbase.html#BadSignatureError	signingbase: BadSignatureError	
-BadTimeSignatureError	prologue/core/signing/signingbase.html#BadTimeSignatureError	signingbase: BadTimeSignatureError	
-SignatureExpiredError	prologue/core/signing/signingbase.html#SignatureExpiredError	signingbase: SignatureExpiredError	
