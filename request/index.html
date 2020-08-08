@@ -272,9 +272,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Requests
+      </label>
+    
     <a href="./" title="Requests" class="md-nav__link md-nav__link--active">
       Requests
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-utils" class="md-nav__link">
+    Request utils
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -356,6 +385,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-utils" class="md-nav__link">
+    Request utils
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -368,7 +413,16 @@
                 
                 
                 <h1 id="request">Request</h1>
-<p>Request object</p>
+<p>You can visit request by <code>ctx.request</code>.</p>
+<h2 id="request-utils">Request utils</h2>
+<ul>
+<li>request.url: gets the url of the request</li>
+<li>request.port: gets the port of the request</li>
+<li>request.path: gets the path of the request.</li>
+<li>request.reqMethod: gets the <code>HttpMethod</code> of the request.</li>
+<li>request.contentType: gets the contentType of the request.</li>
+<li>request.hostName: gets the hostname of the request.</li>
+</ul>
                 
                   
                 

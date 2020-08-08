@@ -284,9 +284,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Response
+      </label>
+    
     <a href="./" title="Response" class="md-nav__link md-nav__link--active">
       Response
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#respond-by-types" class="md-nav__link">
+    Respond by types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#respond-by-error-code" class="md-nav__link">
+    Respond by error code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-utils" class="md-nav__link">
+    Other utils
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -356,6 +399,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#respond-by-types" class="md-nav__link">
+    Respond by types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#respond-by-error-code" class="md-nav__link">
+    Respond by error code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-utils" class="md-nav__link">
+    Other utils
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -368,7 +441,23 @@
                 
                 
                 <h1 id="response">Response</h1>
-<p>Response object</p>
+<h2 id="respond-by-types">Respond by types</h2>
+<p>You can specify different responses by types.
+- htmlResponse -&gt; HTML format
+- plainTextResponse -&gt; Plain Text format
+- jsonResponse -&gt; Json format</p>
+<h2 id="respond-by-error-code">Respond by error code</h2>
+<ul>
+<li>error404 -&gt; return 404</li>
+<li>redirect -&gt; return 301 and redirect to a new page</li>
+<li>abort -&gt; return 401</li>
+</ul>
+<h2 id="other-utils">Other utils</h2>
+<p>You can set the cookie and header of the response.</p>
+<p><code>SetCookie</code>: sets the cookie of the response.
+<code>DeleteCookie</code>: deletes the cookie of the response.
+<code>setHeader</code>: sets the header values of the response.
+<code>addHeader</code>: adds header values to the existing <code>HttpHeaders</code>.</p>
                 
                   
                 

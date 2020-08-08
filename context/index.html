@@ -296,9 +296,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Context
+      </label>
+    
     <a href="./" title="Context" class="md-nav__link md-nav__link--active">
       Context
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context-utils" class="md-nav__link">
+    Context utils
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -356,6 +385,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context-utils" class="md-nav__link">
+    Context utils
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -368,7 +413,26 @@
                 
                 
                 <h1 id="context">Context</h1>
-<p>Context object</p>
+<p>Context is initialized when a new request enters.</p>
+<h2 id="context-utils">Context utils</h2>
+<ul>
+<li>getPostParams: gets the parameters by HttpPost.</li>
+<li>getQueryParams: gets the query strings(for example, "www.google.com/hello?name=12", <code>name=12</code>).</li>
+<li>
+<p>getPathParams: gets the route parameters(for example, "/hello/{name}").</p>
+</li>
+<li>
+<p>setResponse: it is handy to make the response of <code>ctx</code>.</p>
+</li>
+<li>attachment: <code>attachment</code> is used to specify the file will be downloaded.</li>
+<li>
+<p>staticFileResponse: serves static files.</p>
+</li>
+<li>
+<p>getUploadFile: gets the <code>UploadFile</code> from request.</p>
+</li>
+<li>save: saves the <code>UploadFile</code> to disk.</li>
+</ul>
                 
                   
                 
