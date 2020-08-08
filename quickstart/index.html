@@ -236,9 +236,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        QuickStart
+      </label>
+    
     <a href="./" title="QuickStart" class="md-nav__link md-nav__link--active">
       QuickStart
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    hello world
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tool" class="md-nav__link">
+    Command line tool
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -356,6 +392,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    hello world
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tool" class="md-nav__link">
+    Command line tool
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -368,6 +427,7 @@
                 
                 
                 <h1 id="quick-start">Quick Start</h1>
+<h2 id="hello-world">hello world</h2>
 <p>Now Let's begin a quick tour of <code>Prologue</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
@@ -391,6 +451,25 @@ see "Hello, Prologue!" in your browser! Here is how it works.</p>
 <p>Next let's configure our application. For this basic
 example, we will use default settings. You can specify parameters of <code>newSettings</code> of course. You can change to other <code>port</code> or set <code>debug</code> flag.</p>
 <p>Next let's add route to our application. Finally just <code>run</code> our application.</p>
+<h2 id="command-line-tool">Command line tool</h2>
+<p>You can also install <a href="https://github.com/planety/logue">logue</a> to initialize your
+program.</p>
+<div class="codehilite"><pre><span></span><code>nimble install logue
+</code></pre></div>
+
+
+<p>Make sure <code>~/.nimble/bin</code> is in your environment variables.</p>
+<p>Type command <code>logue init helloworld</code> to initialize. This will create program
+structure like this:</p>
+<div class="codehilite"><pre><span></span><code>- helloworld
+  .env
+  app.nim
+  urls.nim
+  views.nim
+</code></pre></div>
+
+
+<p>You must switch to <code>/.../helloworld</code> directory to run <code>app.nim</code>.</p>
                 
                   
                 
