@@ -279,6 +279,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#notesimportant" class="md-nav__link">
+    Notes(important)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hello-world" class="md-nav__link">
     Hello World
   </a>
@@ -290,11 +297,31 @@
     Another example
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dsl-for-routes" class="md-nav__link">
+    DSL for routes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#more-examples" class="md-nav__link">
     More examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donate" class="md-nav__link">
+    Donate
   </a>
   
 </li>
@@ -487,6 +514,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#notesimportant" class="md-nav__link">
+    Notes(important)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hello-world" class="md-nav__link">
     Hello World
   </a>
@@ -498,11 +532,31 @@
     Another example
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dsl-for-routes" class="md-nav__link">
+    DSL for routes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#more-examples" class="md-nav__link">
     More examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donate" class="md-nav__link">
+    Donate
   </a>
   
 </li>
@@ -550,6 +604,7 @@ web services.</p>
 <p><strong>Reduce magic. Reduce surprise.</strong></p>
 <h2 id="documentation">Documentation</h2>
 <p>You can read documentation in https://planety.github.io/prologue.</p>
+<p>API docs in https://planety.github.io/prologue/api/theindex.html.</p>
 <h2 id="feature">Feature</h2>
 <ul>
 <li>Core</li>
@@ -562,6 +617,7 @@ web services.</p>
 <li>[x] Middleware</li>
 <li>[x] Simple Route</li>
 <li>[x] Regex Route</li>
+<li>[x] DSL Route</li>
 <li>[x] CORS Response</li>
 <li>[x] Signing</li>
 <li>[x] Cookie</li>
@@ -584,6 +640,7 @@ web services.</p>
 <li>[x] Minimal OpenApi support</li>
 <li>[x] Template(Using Karax Native)</li>
 <li>[x] Test Client(Using httpclient)</li>
+<li>[x] Command line tools(https://github.com/planety/logue)</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>First you should install <a href="https://nim-lang.org/">Nim</a> language which is an elegant and high performance language.Follow the <a href="https://nim-lang.org/install.html">instructions</a> and set environment variables correctly.</p>
@@ -593,6 +650,38 @@ web services.</p>
 
 
 <h2 id="usage">Usage</h2>
+<h3 id="notesimportant">Notes(important)</h3>
+<ol>
+<li>
+<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable multi-threads HTTP Server.</p>
+</li>
+<li>
+<p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span>
+  <span class="c"># debug attributes must be false</span>
+  <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
+  <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;appName&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">),</span>
+                         <span class="n">debug</span> <span class="o">=</span> <span class="kp">false</span><span class="p">,</span>
+                         <span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;port&quot;</span><span class="p">,</span> <span class="mi">8787</span><span class="p">)),</span>
+                         <span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="n">env</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;staticDir&quot;</span><span class="p">)</span><span class="o">]</span><span class="p">,</span>
+                         <span class="n">secretKey</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;secretKey&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+
+
+<p>or in <code>.env</code> file, set <code>debug = false</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
+<span class="c"># Eg. Make sure &quot;.env&quot; in your &quot;.gitignore&quot; file.</span>
+<span class="n">debug</span><span class="o">=</span><span class="kp">false</span> <span class="c"># change this</span>
+<span class="n">port</span><span class="o">=</span><span class="mi">8787</span>
+<span class="n">appName</span><span class="o">=</span><span class="n">HelloWorld</span>
+<span class="n">staticDir</span><span class="o">=/</span><span class="k">static</span>
+<span class="n">secretKey</span><span class="o">=</span><span class="n">Pr435ol67ogue</span>
+</code></pre></div>
+
+
 <h3 id="hello-world">Hello World</h3>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
@@ -609,7 +698,7 @@ web services.</p>
 </code></pre></div>
 
 
-<p>Run <strong>app.nim</strong>.Now the server is running at localhost:8080.</p>
+<p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
 <h3 id="another-example">Another example</h3>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
@@ -645,13 +734,36 @@ web services.</p>
 </code></pre></div>
 
 
-<p>Run <strong>app.nim</strong>.Now the server is running at localhost:8080.</p>
+<h4 id="dsl-for-routes">DSL for routes</h4>
+<p>You can read docs in https://nim-lang.github.io/Nim/with.html and construct your own DSL.</p>
+<p>Pseudocode:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">std</span><span class="o">/</span><span class="k">with</span>
+
+
+<span class="k">with</span> <span class="n">app</span><span class="p">:</span>
+  <span class="n">get</span> <span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">home</span>
+  <span class="n">post</span> <span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">home</span>
+  <span class="n">get</span> <span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span>
+  <span class="n">get</span> <span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span>
+  <span class="n">get</span> <span class="s">&quot;/redirect&quot;</span><span class="p">,</span> <span class="n">doRedirect</span>
+  <span class="n">get</span> <span class="s">&quot;/login&quot;</span><span class="p">,</span> <span class="n">login</span>  
+  <span class="n">post</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="n">debugRequestMiddleware</span><span class="p">())</span>
+  <span class="n">get</span> <span class="s">&quot;/hello/{name}&quot;</span><span class="p">,</span> <span class="n">helloName</span>
+  <span class="n">addRoute</span> <span class="o">[</span><span class="n">HttpGet</span><span class="p">,</span> <span class="n">HttpPost</span><span class="o">]</span><span class="p">,</span> <span class="n">helloRoute</span>
+</code></pre></div>
+
+
+<p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
 <h3 id="more-examples">More examples</h3>
 <ul>
 <li><a href="https://github.com/planety/prologue/tree/master/examples/helloworld">HelloWorld</a></li>
 <li><a href="https://github.com/planety/prologue/tree/master/examples/todolist">ToDoList</a></li>
 <li><a href="https://github.com/planety/prologue/tree/master/examples/blog">Blog</a></li>
 </ul>
+<h3 id="donate">Donate</h3>
+<p>Thanks for supporting me.</p>
+<p><a href="https://www.buymeacoffee.com/flywind">by me a coffee</a></p>
+<p><a href="https://www.patreon.com/flywind">patreon</a></p>
 <h3 id="stars">Stars</h3>
 <p><a href="https://starchart.cc/planety/prologue"><img alt="Stargazers over time" src="https://starchart.cc/planety/prologue.svg" /></a></p>
                 
