@@ -332,9 +332,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Static Files
+      </label>
+    
     <a href="./" title="Static Files" class="md-nav__link md-nav__link--active">
       Static Files
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#staticfileresponse" class="md-nav__link">
+    staticFileResponse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serve-static-files" class="md-nav__link">
+    serve static files
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -356,6 +392,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#staticfileresponse" class="md-nav__link">
+    staticFileResponse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serve-static-files" class="md-nav__link">
+    serve static files
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -368,6 +427,27 @@
                 
                 
                 <h1 id="static-files">Static Files</h1>
+<p>Prologue supports serving static files.</p>
+<h2 id="staticfileresponse">staticFileResponse</h2>
+<p>You can use <code>staticFileResponse</code> to make a static file response.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">home</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;hello.html&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2 id="serve-static-files">serve static files</h2>
+<p>You can specify <code>Settings.staticDirs</code> attributes to serve multiple
+static dirs. <code>staticDirs</code> is of <code>seq[string]</code> type, it contains all
+the dirs of static files which will be checked in every request.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span>
+  <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
+  <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="n">env</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;staticDir&quot;</span><span class="p">)</span><span class="o">]</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Or set <code>staticDirs</code> directly:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;/static&quot;</span><span class="p">,</span> <span class="s">&quot;/templates&quot;</span><span class="o">]</span><span class="p">)</span>
+</code></pre></div>
                 
                   
                 
