@@ -4,6 +4,7 @@ RouteResetError	src/prologue/core/route.html#RouteResetError	route: RouteResetEr
 DuplicatedRouteError	src/prologue/core/route.html#DuplicatedRouteError	route: DuplicatedRouteError	
 DuplicatedReversedRouteError	src/prologue/core/route.html#DuplicatedReversedRouteError	route: DuplicatedReversedRouteError	
 UrlPattern	src/prologue/core/route.html#UrlPattern	route: UrlPattern	
+stripRoute	src/prologue/core/route.html#stripRoute,string	route: stripRoute(route: string): string	
 initPath	src/prologue/core/route.html#initPath,string	route: initPath(route: string; httpMethod = HttpGet): Path	
 initRePath	src/prologue/core/route.html#initRePath,Regex	route: initRePath(route: Regex; httpMethod = HttpGet): RePath	
 pattern	src/prologue/core/route.html#pattern,string,HandlerAsync,string	route: pattern(route: string; handler: HandlerAsync; httpMethod = HttpGet; name = &quot;&quot;;\n        middlewares: sink seq[HandlerAsync] = @[]): UrlPattern	

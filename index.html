@@ -609,7 +609,7 @@ web services.</p>
 <h2 id="feature">Feature</h2>
 <ul>
 <li>Core</li>
-<li>Base on httpbeast and asynchttpserver</li>
+<li>Base on httpx and asynchttpserver</li>
 <li>Configure and Settings</li>
 <li>Context</li>
 <li>Param and Query Data</li>
@@ -654,7 +654,15 @@ web services.</p>
 <h3 id="notesimportant">Notes(important)</h3>
 <ol>
 <li>
-<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable multi-threads HTTP Server.</p>
+<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable multi-threads HTTP server.</p>
+</li>
+<li>
+<p>If you use windows and want to use multi-threads HTTP server, make sure use
+latest Nim devel version, and enable <code>--threads:on</code>. In this situation, you can
+use <code>usestd</code> to use <code>asynchttpserver</code>.</p>
+</li>
+<li>
+<p>Notes that multi-threads may be slower than single-thread!</p>
 </li>
 <li>
 <p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
