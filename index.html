@@ -668,6 +668,21 @@ use <code>usestd</code> to use <code>asynchttpserver</code>.</p>
 </code></pre></div>
 
 
+<ol>
+<li>There are two ways to disable logging messages: (1) set <code>settings.debug</code> = false and (2) set a startup event</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
+  <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
+  <span class="n">logging</span><span class="p">.</span><span class="n">setLogFilter</span><span class="p">(</span><span class="n">lvlInfo</span><span class="p">)</span>
+
+
+<span class="k">let</span> 
+  <span class="n">event</span> <span class="o">=</span> <span class="n">initEvent</span><span class="p">(</span><span class="n">setLoggingLevel</span><span class="p">)</span>
+<span class="kd">var</span>
+  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">debugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">,</span> <span class="n">startup</span> <span class="o">=</span> <span class="o">@[</span><span class="n">event</span><span class="o">]</span><span class="p">)</span>
+</code></pre></div>
+
+
 <h3 id="hello-world">Hello World</h3>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>

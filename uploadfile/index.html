@@ -354,7 +354,7 @@
 </code></pre></div>
 
 
-<p><code>getUploadFile</code> only works when you use form parameters and HttpPost method. It provides a helper function to save the uploadFile to disks. If you don't specify the name of the file, it will use the origin name from user.</p>
+<p><code>getUploadFile</code> only works when you use form parameters and HttpPost method. <code>Context</code> module provides a helper function to <code>save</code> the uploadFile to disks. If you don't specify the name of the file, it will use the origin name from user.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">upload</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="k">if</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">reqMethod</span> <span class="o">==</span> <span class="n">HttpGet</span><span class="p">:</span>
     <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;tests/test_uploadFile/upload.html&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
