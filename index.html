@@ -617,6 +617,7 @@ web services.</p>
 <p>Plugin</p>
 </li>
 <li>Minimal OpenApi support</li>
+<li>Websocket support(https://github.com/xflywind/websocketx)</li>
 <li>Template(Using Karax Native)</li>
 <li>Test Client(Using httpclient)</li>
 <li>Command line tools(https://github.com/planety/logue)</li>
@@ -670,7 +671,8 @@ use <code>usestd</code> to use <code>asynchttpserver</code>.</p>
 
 
 <ol>
-<li>There are two ways to disable logging messages: (1) set <code>settings.debug</code> = false and (2) set a startup event</li>
+<li>There are two ways to disable logging messages: 
+(1) set <code>settings.debug</code> = false and (2) set a startup event</li>
 </ol>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
   <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
