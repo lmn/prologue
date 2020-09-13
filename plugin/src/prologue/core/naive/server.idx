@@ -1,5 +1,0 @@
-Server	src/prologue/core/naive/server.html#Server	server: Server	
-Prologue	src/prologue/core/naive/server.html#Prologue	server: Prologue	
-serve	src/prologue/core/naive/server.html#serve,Prologue,Port,proc(Request),string	server: serve(app: Prologue; port: Port;\n      callback: proc (request: NativeRequest): Future[void] {.closure, gcsafe.};\n      address = &quot;&quot;)	
-newPrologueServer	src/prologue/core/naive/server.html#newPrologueServer,int	server: newPrologueServer(reuseAddr = true; reusePort = false; maxBody = 8388608): Server	
-newPrologue	src/prologue/core/naive/server.html#newPrologue,Settings,CtxSettings,Router,ReversedRouter,ReRouter,seq[HandlerAsync],seq[Event],seq[Event],ErrorHandlerTable,StringTableRef	server: newPrologue(settings: Settings; ctxSettings: CtxSettings; router: Router;\n            reversedRouter: ReversedRouter; reRouter: ReRouter;\n            middlewares: seq[HandlerAsync]; startup: seq[Event];\n            shutdown: seq[Event]; errorHandlerTable: ErrorHandlerTable;\n            appData: StringTableRef): Prologue	
