@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Medium scale Web Framework.">
+        <meta name="description" content="Full stack Web Framework.">
       
       
       
@@ -432,6 +432,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="session/" title="Session" class="md-nav__link">
+      Session
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -623,7 +635,7 @@ web services.</p>
 <li>Command line tools(https://github.com/planety/logue)</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p>First you should install <a href="https://nim-lang.org/">Nim</a> language which is an elegant and high performance language.Follow the <a href="https://nim-lang.org/install.html">instructions</a> and set environment variables correctly.</p>
+<p>First you should install <a href="https://nim-lang.org/">Nim</a> language which is an elegant and high performance language. Follow the <a href="https://nim-lang.org/install.html">instructions</a> and set environment variables correctly.</p>
 <p>Then you can use <code>nimble</code> command to install prologue.</p>
 <div class="codehilite"><pre><span></span><code>nimble install prologue
 </code></pre></div>
@@ -633,15 +645,15 @@ web services.</p>
 <h3 id="notesimportant">Notes(important)</h3>
 <ol>
 <li>
-<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable multi-threads HTTP server.</p>
+<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable multi threads HTTP server.</p>
 </li>
 <li>
 <p>If you use windows and want to use multi-threads HTTP server, make sure use
-latest Nim devel version, and enable <code>--threads:on</code>. In this situation, you can
-use <code>usestd</code> to use <code>asynchttpserver</code>.</p>
+latest Nim devel version and enable <code>--threads:on</code>. In this situation, you can
+use <code>-d:usestd</code> to use <code>asynchttpserver</code>.</p>
 </li>
 <li>
-<p>Notes that multi-threads may be slower than single-thread!</p>
+<p>Notes that multi threads may be slower than single-thread!</p>
 </li>
 <li>
 <p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
@@ -738,6 +750,7 @@ use <code>usestd</code> to use <code>asynchttpserver</code>.</p>
 </code></pre></div>
 
 
+<p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
 <h4 id="dsl-for-routes">DSL for routes</h4>
 <p>You can read docs in https://nim-lang.github.io/Nim/with.html and construct your own DSL.</p>
 <p>Pseudocode:</p>
@@ -762,6 +775,7 @@ use <code>usestd</code> to use <code>asynchttpserver</code>.</p>
 <ul>
 <li><a href="https://github.com/planety/prologue/tree/master/examples/helloworld">HelloWorld</a></li>
 <li><a href="https://github.com/planety/prologue/tree/master/examples/todolist">ToDoList</a></li>
+<li><a href="https://github.com/planety/prologue/tree/master/examples/todoapp">ToDoApp</a></li>
 <li><a href="https://github.com/planety/prologue/tree/master/examples/blog">Blog</a></li>
 </ul>
 <h3 id="donate">Donate</h3>
