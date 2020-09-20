@@ -594,8 +594,8 @@
                 
                 
                 <p><img alt="Build Status" src="https://github.com/planety/prologue/workflows/Test%20Prologue/badge.svg" />
-<a href="https://dev.azure.com/xzsflywind/xlsx/_build/latest?definitionId=4&amp;branchName=master"><img alt="Build Status" src="https://dev.azure.com/xzsflywind/xlsx/_apis/build/status/planety.prologue?branchName=master" /></a>
-<img alt="Build Status" src="https://travis-ci.org/planety/prologue.svg?branch=master" /></p>
+<a href="https://dev.azure.com/xzsflywind/xlsx/_build/latest?definitionId=4&amp;branchName=devel"><img alt="Build Status" src="https://dev.azure.com/xzsflywind/xlsx/_apis/build/status/planety.prologue?branchName=devel" /></a>
+<img alt="Build Status" src="https://travis-ci.org/planety/prologue.svg?branch=devel" /></p>
 <p><a href="https://opensource.org/licenses/BSD-3-Clause"><img alt="License: BSD-3-Clause" src="https://img.shields.io/github/license/planety/prologue" /></a>
 <a href="https://github.com/planety/prologue/releases"><img alt="Version" src="https://img.shields.io/github/v/release/planety/prologue?include_prereleases" /></a>
 <a href="https://github.com/planety/prologue#donate"><img alt="buy me a coffee" src="https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange.svg" /></a></p>
@@ -664,10 +664,7 @@ web services.</p>
 <li>
 <p>If you use windows and want to use multi-threads HTTP server, make sure use
 latest Nim devel version and enable <code>--threads:on</code>. In this situation, you can
-use <code>-d:usestd</code> to use <code>asynchttpserver</code>.</p>
-</li>
-<li>
-<p>Notes that multi threads may be slower than single-thread!</p>
+use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi threads may be slower than single-thread in windows!</p>
 </li>
 <li>
 <p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
@@ -787,10 +784,10 @@ use <code>-d:usestd</code> to use <code>asynchttpserver</code>.</p>
 <p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
 <h3 id="more-examples">More examples</h3>
 <ul>
-<li><a href="https://github.com/planety/prologue/tree/master/examples/helloworld">HelloWorld</a></li>
-<li><a href="https://github.com/planety/prologue/tree/master/examples/todolist">ToDoList</a></li>
-<li><a href="https://github.com/planety/prologue/tree/master/examples/todoapp">ToDoApp</a></li>
-<li><a href="https://github.com/planety/prologue/tree/master/examples/blog">Blog</a></li>
+<li><a href="https://github.com/planety/prologue/tree/devel/examples/helloworld">HelloWorld</a></li>
+<li><a href="https://github.com/planety/prologue/tree/devel/examples/todolist">ToDoList</a></li>
+<li><a href="https://github.com/planety/prologue/tree/devel/examples/todoapp">ToDoApp</a></li>
+<li><a href="https://github.com/planety/prologue/tree/devel/examples/blog">Blog</a></li>
 </ul>
 <h3 id="extensions">Extensions</h3>
 <p>If you need more extensions, you can refer to <a href="https://github.com/planety/awesome-prologue">awesome prologue</a> and <a href="https://github.com/xflywind/awesome-nim#web">awesome nim</a>.</p>
