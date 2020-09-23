@@ -290,6 +290,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#send-user-defined-response" class="md-nav__link">
+    Send user-defined response
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -413,6 +420,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#send-user-defined-response" class="md-nav__link">
+    Send user-defined response
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -447,6 +461,29 @@
 <code>DeleteCookie</code>: deletes the cookie of the response.
 <code>setHeader</code>: sets the header values of the response.
 <code>addHeader</code>: adds header values to the existing <code>HttpHeaders</code>.</p>
+<h2 id="send-user-defined-response">Send user-defined response</h2>
+<p><code>Prologue</code> framework will automatically send the final response to the client. You just need to set the attributes of response.</p>
+<p>It also supports sending response by yourself. For example you can use <code>ctx.respond</code> to send data to the client.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sendResponse</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">respond</span><span class="p">(</span><span class="n">Http200</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>But this will leads that "data" message is sent twice, it's ok for some situations. For example, you may want to send another message, you can change the body of the response. </p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sendResponse</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">respond</span><span class="p">(</span><span class="n">Http200</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
+  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span>
+</code></pre></div>
+
+
+<p>First this handler will send "data" to the client, then the handler will send "message" to the client. However, this may be not the intended behaviour. You want to make sure when you send response by yourself, the framework shouldn't handle the response anymore.</p>
+<p>You can set the <code>handled</code> attributes of context to true. Now the framework won't handle <code>ctx.response</code> any more, even the error handler won't work. Only "data" message is sent to the client.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sendResponse</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">respond</span><span class="p">(</span><span class="n">Http200</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
+  <span class="n">ctx</span><span class="p">.</span><span class="n">handled</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">Http500</span>
+  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span>
+</code></pre></div>
                 
               
               
