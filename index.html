@@ -265,19 +265,6 @@
     Another example
   </a>
   
-    <nav class="md-nav" aria-label="Another example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dsl-for-routes" class="md-nav__link">
-    DSL for routes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -530,19 +517,6 @@
     Another example
   </a>
   
-    <nav class="md-nav" aria-label="Another example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dsl-for-routes" class="md-nav__link">
-    DSL for routes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -609,8 +583,12 @@ web services.</p>
 <p><strong>Reduce magic. Reduce surprise.</strong></p>
 <h2 id="documentation">Documentation</h2>
 <p>You can read documentation in https://planety.github.io/prologue.</p>
-<p>Core API docs in https://planety.github.io/prologue/coreapi/theindex.html.</p>
-<p>Plugin API docs in https://planety.github.io/prologue/plugin/theindex.html.</p>
+<p>Core API docs: 
+<a href="https://planety.github.io/prologue/coreapi/theindex.html">Index</a>
+<a href="https://planety.github.io/prologue/coreapi/application.html">Search Pages</a></p>
+<p>Plugin API docs:
+<a href="https://planety.github.io/prologue/plugin/theindex.html">index</a>
+<a href="https://planety.github.io/prologue/plugin/index.html">Search pages</a></p>
 <h2 id="feature">Feature</h2>
 <ul>
 <li>Core</li>
@@ -759,26 +737,6 @@ use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">,</span> <span class="n">do_login</span><span class="p">,</span> <span class="n">HttpPost</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">debugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">)</span>
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/hello/{name}&quot;</span><span class="p">,</span> <span class="n">helloName</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">)</span>
 <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre></div>
-
-
-<p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
-<h4 id="dsl-for-routes">DSL for routes</h4>
-<p>You can read docs in https://nim-lang.github.io/Nim/with.html and construct your own DSL.</p>
-<p>Pseudocode:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">std</span><span class="o">/</span><span class="n">with</span>
-
-
-<span class="n">with</span> <span class="n">app</span><span class="p">:</span>
-  <span class="n">get</span> <span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">home</span>
-  <span class="n">post</span> <span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">home</span>
-  <span class="n">get</span> <span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span>
-  <span class="n">get</span> <span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span>
-  <span class="n">get</span> <span class="s">&quot;/redirect&quot;</span><span class="p">,</span> <span class="n">doRedirect</span>
-  <span class="n">get</span> <span class="s">&quot;/login&quot;</span><span class="p">,</span> <span class="n">login</span>  
-  <span class="n">post</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="n">debugRequestMiddleware</span><span class="p">())</span>
-  <span class="n">get</span> <span class="s">&quot;/hello/{name}&quot;</span><span class="p">,</span> <span class="n">helloName</span>
-  <span class="n">addRoute</span> <span class="o">[</span><span class="n">HttpGet</span><span class="p">,</span> <span class="n">HttpPost</span><span class="o">]</span><span class="p">,</span> <span class="n">helloRoute</span>
 </code></pre></div>
 
 
