@@ -18,7 +18,7 @@
     
     
       
-        <title>Response - Prologue</title>
+        <title>FAQ - Prologue</title>
       
     
     
@@ -51,11 +51,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#response" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -80,7 +75,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Response
+              FAQ
             
           </span>
         </div>
@@ -226,70 +221,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Response
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" title="Response" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../response/" title="Response" class="md-nav__link">
       Response
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#respond-by-types" class="md-nav__link">
-    Respond by types
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#respond-by-error-code" class="md-nav__link">
-    Respond by error code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-utils" class="md-nav__link">
-    Other utils
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#send-user-defined-response" class="md-nav__link">
-    Send user-defined response
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -369,11 +305,18 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../faq/" title="FAQ" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="FAQ" class="md-nav__link md-nav__link--active">
       FAQ
     </a>
+    
   </li>
 
     
@@ -384,57 +327,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#respond-by-types" class="md-nav__link">
-    Respond by types
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#respond-by-error-code" class="md-nav__link">
-    Respond by error code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-utils" class="md-nav__link">
-    Other utils
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#send-user-defined-response" class="md-nav__link">
-    Send user-defined response
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -444,46 +336,56 @@
                   
                 
                 
-                <h1 id="response">Response</h1>
-<h2 id="respond-by-types">Respond by types</h2>
-<p>You can specify different responses by types.
-- htmlResponse -&gt; HTML format
-- plainTextResponse -&gt; Plain Text format
-- jsonResponse -&gt; Json format</p>
-<h2 id="respond-by-error-code">Respond by error code</h2>
-<ul>
-<li>error404 -&gt; return 404</li>
-<li>redirect -&gt; return 301 and redirect to a new page</li>
-<li>abort -&gt; return 401</li>
-</ul>
-<h2 id="other-utils">Other utils</h2>
-<p>You can set the cookie and header of the response.</p>
-<p><code>SetCookie</code>: sets the cookie of the response.
-<code>DeleteCookie</code>: deletes the cookie of the response.
-<code>setHeader</code>: sets the header values of the response.
-<code>addHeader</code>: adds header values to the existing <code>HttpHeaders</code>.</p>
-<h2 id="send-user-defined-response">Send user-defined response</h2>
-<p><code>Prologue</code> framework will automatically send the final response to the client. You just need to set the attributes of response.</p>
-<p>It also supports sending response by yourself. For example you can use <code>ctx.respond</code> to send data to the client.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sendResponse</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
-  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">respond</span><span class="p">(</span><span class="n">Http200</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
+                  <h1>FAQ</h1>
+                
+                <ol>
+<li>
+<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable the multi-threads HTTP server.</p>
+</li>
+<li>
+<p>If you use windows and want to use multi-threads HTTP server, make sure use
+latest Nim devel version and enable <code>--threads:on</code>. In this situation, you can
+use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi threads may be slower than single-thread in windows!</p>
+</li>
+<li>
+<p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span>
+  <span class="c"># debug attributes must be false</span>
+  <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
+  <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;appName&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">),</span>
+                         <span class="n">debug</span> <span class="o">=</span> <span class="kp">false</span><span class="p">,</span>
+                         <span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;port&quot;</span><span class="p">,</span> <span class="mi">8787</span><span class="p">)),</span>
+                         <span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="n">env</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;staticDir&quot;</span><span class="p">)</span><span class="o">]</span><span class="p">,</span>
+                         <span class="n">secretKey</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;secretKey&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
 </code></pre></div>
 
 
-<p>But this will leads that "data" message is sent twice, it's ok for some situations. For example, you may want to send another message, you can change the body of the response. </p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sendResponse</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
-  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">respond</span><span class="p">(</span><span class="n">Http200</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
-  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span>
+<p>or in <code>.env</code> file, set <code>debug = false</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
+<span class="c"># Eg. Make sure &quot;.env&quot; in your &quot;.gitignore&quot; file.</span>
+<span class="n">debug</span><span class="o">=</span><span class="kp">false</span> <span class="c"># change this</span>
+<span class="n">port</span><span class="o">=</span><span class="mi">8787</span>
+<span class="n">appName</span><span class="o">=</span><span class="n">HelloWorld</span>
+<span class="n">staticDir</span><span class="o">=/</span><span class="k">static</span>
+<span class="n">secretKey</span><span class="o">=</span><span class="n">Pr435ol67ogue</span>
 </code></pre></div>
 
 
-<p>First this handler will send "data" to the client, then the handler will send "message" to the client. However, this may be not the intended behaviour. You want to make sure when you send response by yourself, the framework shouldn't handle the response anymore.</p>
-<p>You can set the <code>handled</code> attributes of context to true. Now the framework won't handle <code>ctx.response</code> any more, even the error handler won't work. Only "data" message is sent to the client.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sendResponse</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
-  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">respond</span><span class="p">(</span><span class="n">Http200</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
-  <span class="n">ctx</span><span class="p">.</span><span class="n">handled</span> <span class="o">=</span> <span class="kp">true</span>
-  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">Http500</span>
-  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="s">&quot;message&quot;</span>
+<p>There are two ways to disable logging messages:</p>
+<p>(1) set <code>settings.debug</code> = false
+(2) set a startup event</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
+  <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
+  <span class="n">logging</span><span class="p">.</span><span class="n">setLogFilter</span><span class="p">(</span><span class="n">lvlInfo</span><span class="p">)</span>
+
+
+<span class="k">let</span> 
+  <span class="n">event</span> <span class="o">=</span> <span class="n">initEvent</span><span class="p">(</span><span class="n">setLoggingLevel</span><span class="p">)</span>
+<span class="kd">var</span>
+  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">debugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">,</span> <span class="n">startup</span> <span class="o">=</span> <span class="o">@[</span><span class="n">event</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
                 
               
@@ -503,7 +405,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../request/" title="Requests" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../session/" title="Session" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -512,25 +414,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Requests
+                Session
               </div>
             </div>
           </a>
         
-        
-          <a href="../context/" title="Context" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Context
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
