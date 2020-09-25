@@ -80,7 +80,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Introduction
             
           </span>
         </div>
@@ -173,6 +173,125 @@
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="." title="Introduction" class="md-nav__link md-nav__link--active">
+      Introduction
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    Purpose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello World
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#another-example" class="md-nav__link">
+    Another example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-examples" class="md-nav__link">
+    More examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    Extensions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donate" class="md-nav__link">
+    Donate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stars" class="md-nav__link">
+    Stars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
     
       
       
@@ -356,13 +475,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#feature" class="md-nav__link">
-    Feature
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
   </a>
@@ -376,13 +488,6 @@
   
     <nav class="md-nav" aria-label="Usage">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#notesimportant" class="md-nav__link">
-    Notes(important)
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#hello-world" class="md-nav__link">
@@ -492,44 +597,6 @@ web services.</p>
 </tbody>
 </table>
 
-<h2 id="feature">Feature</h2>
-<ul>
-<li>Core</li>
-<li>Base on httpx and asynchttpserver</li>
-<li>Configure and Settings</li>
-<li>Context</li>
-<li>Param and Query Data</li>
-<li>Form Data</li>
-<li>Static Files</li>
-<li>Middleware</li>
-<li>Simple Route</li>
-<li>Regex Route</li>
-<li>DSL Route</li>
-<li>CORS Response</li>
-<li>Signing</li>
-<li>Cookie</li>
-<li>Session</li>
-<li>Cache</li>
-<li>Startup and Shutdown Events</li>
-<li>URL Building</li>
-<li>Data Validation</li>
-<li>Exception Handler</li>
-<li>Cross-Site Request Forgery</li>
-<li>Cross-Site Scripting (XSS) Protection(Karax quote string automatically)</li>
-<li>Clickjacking Protection</li>
-<li>Authentication</li>
-<li>
-<p>I18n</p>
-</li>
-<li>
-<p>Plugin</p>
-</li>
-<li>Minimal OpenApi support</li>
-<li>Websocket support(https://github.com/xflywind/websocketx)</li>
-<li>Template(Using Karax Native)</li>
-<li>Test Client(Using httpclient)</li>
-<li>Command line tools(https://github.com/planety/logue)</li>
-</ul>
 <h2 id="installation">Installation</h2>
 <p>First you should install <a href="https://nim-lang.org/">Nim</a> language which is an elegant and high performance language. Follow the <a href="https://nim-lang.org/install.html">instructions</a> and set environment variables correctly.</p>
 <p>Then you can use <code>nimble</code> command to install prologue.</p>
@@ -538,59 +605,6 @@ web services.</p>
 
 
 <h2 id="usage">Usage</h2>
-<h3 id="notesimportant">Notes(important)</h3>
-<ol>
-<li>
-<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable multi threads HTTP server.</p>
-</li>
-<li>
-<p>If you use windows and want to use multi-threads HTTP server, make sure use
-latest Nim devel version and enable <code>--threads:on</code>. In this situation, you can
-use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi threads may be slower than single-thread in windows!</p>
-</li>
-<li>
-<p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
-</li>
-</ol>
-<div class="codehilite"><pre><span></span><code><span class="k">let</span>
-  <span class="c"># debug attributes must be false</span>
-  <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
-  <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;appName&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">),</span>
-                         <span class="n">debug</span> <span class="o">=</span> <span class="kp">false</span><span class="p">,</span>
-                         <span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;port&quot;</span><span class="p">,</span> <span class="mi">8787</span><span class="p">)),</span>
-                         <span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="n">env</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;staticDir&quot;</span><span class="p">)</span><span class="o">]</span><span class="p">,</span>
-                         <span class="n">secretKey</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;secretKey&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-    <span class="p">)</span>
-</code></pre></div>
-
-
-<p>or in <code>.env</code> file, set <code>debug = false</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
-<span class="c"># Eg. Make sure &quot;.env&quot; in your &quot;.gitignore&quot; file.</span>
-<span class="n">debug</span><span class="o">=</span><span class="kp">false</span> <span class="c"># change this</span>
-<span class="n">port</span><span class="o">=</span><span class="mi">8787</span>
-<span class="n">appName</span><span class="o">=</span><span class="n">HelloWorld</span>
-<span class="n">staticDir</span><span class="o">=/</span><span class="k">static</span>
-<span class="n">secretKey</span><span class="o">=</span><span class="n">Pr435ol67ogue</span>
-</code></pre></div>
-
-
-<p>There are two ways to disable logging messages:</p>
-<p>(1) set <code>settings.debug</code> = false
-(2) set a startup event</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
-  <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
-  <span class="n">logging</span><span class="p">.</span><span class="n">setLogFilter</span><span class="p">(</span><span class="n">lvlInfo</span><span class="p">)</span>
-
-
-<span class="k">let</span> 
-  <span class="n">event</span> <span class="o">=</span> <span class="n">initEvent</span><span class="p">(</span><span class="n">setLoggingLevel</span><span class="p">)</span>
-<span class="kd">var</span>
-  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">,</span> 
-  <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">debugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">,</span> <span class="n">startup</span> <span class="o">=</span> <span class="o">@[</span><span class="n">event</span><span class="o">]</span><span class="p">)</span>
-</code></pre></div>
-
-
 <h3 id="hello-world">Hello World</h3>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
@@ -673,6 +687,27 @@ use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+        
+          <a href="quickstart/" title="QuickStart" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                QuickStart
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
