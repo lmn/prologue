@@ -415,7 +415,14 @@
                 
                 
                 <h1 id="request">Request</h1>
-<p>You can visit request by <code>ctx.request</code>.</p>
+<p><code>Request</code> contains the information from the HTTP server. You can visit this attribute by using <code>ctx.request</code>.</p>
+<p>for example</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="k">if</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">cookies</span><span class="p">.</span><span class="n">hasKey</span><span class="p">(</span><span class="s">&quot;csrf_used&quot;</span><span class="p">):</span>
+    <span class="n">doSomeThing</span><span class="p">()</span>
+</code></pre></div>
+
+
 <h2 id="request-utils">Request utils</h2>
 <ul>
 <li>request.url: gets the url of the request</li>
