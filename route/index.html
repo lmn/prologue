@@ -232,6 +232,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../errorhandler/" title="Error Handler" class="md-nav__link">
+      Error Handler
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../headers/" title="Headers" class="md-nav__link">
       Headers
     </a>
@@ -470,8 +482,8 @@
                 <h1 id="route">Route</h1>
 <p>Route is the core of web framework.</p>
 <h2 id="static-route">Static Route</h2>
-<p>Register handler <code>hello</code> by specifying path, httpMethod and middlewares.</p>
-<p>Default http method is <code>HttpGet</code>.If you register a handler with <code>HttpGet</code>, <code>Prologue</code> will automatically register <code>HttpHead</code> for this handler.</p>
+<p>Registering handler <code>hello</code> by specifying path, HTTP methods and middlewares.</p>
+<p><code>HttpGet</code> is the default HTTP methods. If you have registered a handler with <code>HttpGet</code>, <code>Prologue</code> will automatically register <code>HttpHead</code> for this handler.</p>
 <div class="codehilite"><pre><span></span><code><span class="c"># handler</span>
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
@@ -480,7 +492,7 @@
 </code></pre></div>
 
 
-<p>You can also use <code>seq[httpMetod]</code> to register same handler but support different http methods.</p>
+<p>You can also use <code>seq[httpMetod]</code> to register the same handler but supports mutiple HTTP methods.</p>
 <div class="codehilite"><pre><span></span><code><span class="c"># handler</span>
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
@@ -490,7 +502,7 @@
 
 
 <h2 id="parameters-route">Parameters Route</h2>
-<p><code>Prologue</code> support parameters route.You can use <code>getPathParams</code> to get name argument.</p>
+<p><code>Prologue</code> supports parameters route. You can use <code>getPathParams</code> to get named arguments.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">helloName</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, &quot;</span> <span class="o">&amp;</span> <span class="n">ctx</span><span class="p">.</span><span class="n">getPathParams</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">&quot;&lt;/h1&gt;&quot;</span>
 
@@ -499,7 +511,7 @@
 
 
 <h3 id="regex-route">Regex Route</h3>
-<p><code>Prologue</code> support regex route.You can use <code>getPathParams</code> to get name argument.</p>
+<p><code>Prologue</code> supports regex route.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">articles</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="o">$</span><span class="n">ctx</span><span class="p">.</span><span class="n">getPathParams</span><span class="p">(</span><span class="s">&quot;num&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 

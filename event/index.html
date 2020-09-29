@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#event" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -220,11 +225,25 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
     <a href="./" title="Event" class="md-nav__link md-nav__link--active">
       Event
     </a>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../errorhandler/" title="Error Handler" class="md-nav__link">
+      Error Handler
+    </a>
   </li>
 
     
@@ -355,15 +374,29 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Event</h1>
-                
-                <p><code>Prologue</code> supports both <code>startup</code> and <code>shutdown</code> events. <code>startup</code> events will be only executed once before the main loop. In contrast, <code>shutdown</code> events will be executed once after the main loop.</p>
+                <h1 id="event">Event</h1>
+<p><code>Prologue</code> supports both <code>startup</code> and <code>shutdown</code> events. <code>startup</code> events will be only executed once before the main loop. In contrast, <code>shutdown</code> events will be executed once after the main loop.</p>
 <p>Let's first look at the structure of <code>Event</code>, you can see that <code>Event</code> supports both synchronous and asynchronous closure function pointers.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">type</span>
   <span class="n">AsyncEvent</span><span class="o">*</span> <span class="o">=</span> <span class="k">proc</span><span class="p">():</span> <span class="n">Future</span><span class="o">[</span><span class="n">void</span><span class="o">]</span> <span class="p">{.</span><span class="n">closure</span><span class="p">,</span> <span class="n">gcsafe</span><span class="p">.}</span>
@@ -440,13 +473,13 @@
           </a>
         
         
-          <a href="../headers/" title="Headers" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../errorhandler/" title="Error Handler" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Headers
+                Error Handler
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
