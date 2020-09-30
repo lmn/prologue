@@ -469,7 +469,7 @@ visible to some middlewares.</p>
 <span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="k">discard</span>
 
-<span class="k">proc </span><span class="nf">myDebugRequestMiddleware</span><span class="o">*</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="s">&quot;Starlight&quot;</span><span class="p">):</span> <span class="n">HandlerAsync</span> <span class="o">=</span>
+<span class="k">proc </span><span class="nf">myDebugRequestMiddleware</span><span class="o">*</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="s">&quot;Prologue&quot;</span><span class="p">):</span> <span class="n">HandlerAsync</span> <span class="o">=</span>
   <span class="n">result</span> <span class="o">=</span> <span class="k">proc</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
     <span class="n">logging</span><span class="p">.</span><span class="n">info</span> <span class="s">&quot;debugRequestMiddleware-&gt;begin&quot;</span>
     <span class="c"># do something before</span>
