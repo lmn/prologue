@@ -269,6 +269,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#default-error-handler" class="md-nav__link">
+    Default error handler
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -426,6 +433,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#default-error-handler" class="md-nav__link">
+    Default error handler
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -442,9 +456,51 @@
                 <h1 id="error-handler">Error Handler</h1>
 <h2 id="user-defined-error-pages">User-defined error pages</h2>
 <p>When web application encounters some unexpected situations, it may send 404 response to the client.
-You may want to use user-defined 404 pages, then you can use <code>resp</code> to return 404 response. </p>
+You may want to use user-defined 404 pages, then you can use <code>resp</code> to return 404 response.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;Something is wrong, please retry.&quot;</span><span class="p">,</span> <span class="n">Http404</span>
+</code></pre></div>
+
+
+<p><code>Prologue</code> also provides an <code>error404</code> helper function to create a 404 response.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="n">error404</span><span class="p">(</span><span class="n">headers</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Or use <code>errorPage</code> to create a more descriptive error page.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="n">errorPage</span><span class="p">(</span><span class="s">&quot;Something is wrong&quot;</span><span class="p">),</span> <span class="n">Http404</span>
+</code></pre></div>
+
+
+<h2 id="default-error-handler">Default error handler</h2>
+<p>Users can also set the default error handler. When <code>ctx.response.body</code> is empty, web application will use the default error handler.</p>
+<p>The basic example with <code>respDefault</code> which is equal to <code>resp errorPage("Something is wrong"), Http404</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">respDefault</span> <span class="n">Http404</span>
+</code></pre></div>
+
+
+<p><code>Prologue</code> has registered two error handlers before application starts, namely <code>default404Handler</code> for <code>Http404</code> and <code>default500Handler</code> for <code>Http500</code>. You can change them using <code>registerErrorHandler</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">go404</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;Something wrong!&quot;</span><span class="p">,</span> <span class="n">Http404</span>
+
+<span class="k">proc </span><span class="nf">go20x</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;Ok!&quot;</span><span class="p">,</span> <span class="n">Http200</span>
+
+<span class="k">proc </span><span class="nf">go30x</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;EveryThing else?&quot;</span><span class="p">,</span> <span class="n">Http301</span>
+
+<span class="n">app</span><span class="p">.</span><span class="n">registerErrorHandler</span><span class="p">(</span><span class="n">Http404</span><span class="p">,</span> <span class="n">go404</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">registerErrorHandler</span><span class="p">({</span><span class="n">Http200</span> <span class="p">..</span> <span class="n">Http204</span><span class="p">},</span> <span class="n">go20x</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">registerErrorHandler</span><span class="p">(</span><span class="o">@[</span><span class="n">Http301</span><span class="p">,</span> <span class="n">Http304</span><span class="p">,</span> <span class="n">Http307</span><span class="o">]</span><span class="p">,</span> <span class="n">go30x</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>If you don't want to use default Error handler, you could clear the error handler table.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">,</span> <span class="n">errorHandlerTable</span> <span class="o">=</span> <span class="n">newErrorHandlerTable</span><span class="p">())</span>
 </code></pre></div>
                 
               
