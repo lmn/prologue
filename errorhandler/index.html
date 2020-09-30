@@ -276,6 +276,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#http-500-handler" class="md-nav__link">
+    HTTP 500 handler
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -440,6 +447,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#http-500-handler" class="md-nav__link">
+    HTTP 500 handler
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -498,10 +512,15 @@ You may want to use user-defined 404 pages, then you can use <code>resp</code> t
 </code></pre></div>
 
 
-<p>If you don't want to use default Error handler, you could clear the error handler table.</p>
+<p>If you don't want to use the default Error handler, you could clear the whole error handler table.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
 <span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">,</span> <span class="n">errorHandlerTable</span> <span class="o">=</span> <span class="n">newErrorHandlerTable</span><span class="p">())</span>
 </code></pre></div>
+
+
+<h2 id="http-500-handler">HTTP 500 handler</h2>
+<p><code>Http 500</code> indicates the internal error of the framework. In debug mode(<code>settings.debug = true</code>), the framework will send the exception msgs to the web browser if the length of error msgs is greater than zero. 
+Otherwise, the framework will use the default error handled which has been registered before the application starts. Users could cover this handler by using their own error handler.</p>
                 
               
               
