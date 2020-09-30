@@ -455,8 +455,9 @@
                 
                 <h1 id="middlewares">Middlewares</h1>
 <h2 id="write-a-middleware">Write a middleware</h2>
-<p>Middleware is like an onion. </p>
-<p>a request -&gt; middlewareA does something -&gt; middlewareB does something
+<p>Middleware is like an onion. 
+s
+a request -&gt; middlewareA does something -&gt; middlewareB does something
 -&gt; handler does something -&gt; middlewareB does something -&gt; middlewareA does something -&gt; a response</p>
 <p>Don't forget <code>await switch(ctx)</code> to enter next middleware or handler.</p>
 <p>Then you can set global middlewares which are visible to all handlers. Or you can make them only
@@ -486,7 +487,7 @@ visible to some middlewares.</p>
 </code></pre></div>
 
 
-<p>You can also put some variables in closure environments, but be careful it is error-prone when using multi-threads. You must know the differences between gc options(thread local heap vs shared heap) and what's the use of <code>gcsafe</code>. </p>
+<p>You can also put some variables in closure environments, but be careful it is error-prone when using multi-threads. You must know the differences between GC options(thread local heap vs shared heap) and what's the use of <code>gcsafe</code>. </p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sessionMiddleware</span><span class="p">():</span> <span class="n">HandleAsync</span> <span class="o">=</span>
   <span class="kd">var</span> <span class="n">memorySessionTable</span> <span class="o">=</span> <span class="n">newTable</span><span class="o">[</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="o">]</span><span class="p">()</span>
 

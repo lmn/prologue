@@ -457,7 +457,7 @@
 <p>Prologue provides two types of <code>headers</code>. One is the headers of <code>request</code> which carries information from the client. The other is the headers of <code>response</code> which carries information sent to the client.</p>
 <h2 id="the-headers-of-the-request">The headers of the request</h2>
 <p>The client will send headers to our HTTP server. You may want to check whether some keys are in the headers. 
-If existing, you counld get the values of them. The return type of <code>ctx.request.getHeader</code> is <code>seq[string]</code>. You often only need the first element of the sequenece.</p>
+If existing, you could get the values of them. The return type of <code>ctx.request.getHeader</code> is <code>seq[string]</code>. You often only need the first element of the sequence.</p>
 <p>The following code first checks whether the key exists in headers. If true, retrieve the sequence of values and display them in the browser.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="k">if</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">hasHeader</span><span class="p">(</span><span class="s">&quot;cookie&quot;</span><span class="p">):</span>

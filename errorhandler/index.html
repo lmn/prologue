@@ -240,9 +240,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Error Handler
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" title="Error Handler" class="md-nav__link md-nav__link--active">
       Error Handler
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-defined-error-pages" class="md-nav__link">
+    User-defined error pages
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -384,6 +413,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-defined-error-pages" class="md-nav__link">
+    User-defined error pages
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -396,6 +440,12 @@
                 
                 
                 <h1 id="error-handler">Error Handler</h1>
+<h2 id="user-defined-error-pages">User-defined error pages</h2>
+<p>When web application encounters some unexpected situations, it may send 404 response to the client.
+You may want to use user-defined 404 pages, then you can use <code>resp</code> to return 404 response. </p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;Something is wrong, please retry.&quot;</span><span class="p">,</span> <span class="n">Http404</span>
+</code></pre></div>
                 
               
               
