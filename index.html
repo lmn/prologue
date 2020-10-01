@@ -271,22 +271,22 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#donate" class="md-nav__link">
     Donate
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#stars" class="md-nav__link">
     Stars
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -545,22 +545,22 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#donate" class="md-nav__link">
     Donate
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#stars" class="md-nav__link">
     Stars
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -623,19 +623,16 @@ web services.</p>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
 
-
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
 
-
-<span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
-<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">())</span>
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
 <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
 
 
-<p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
+<p>Run <strong>app.nim</strong> ( <code>nim c -r app.nim</code> ). Now the server is running at <code>localhost:8080</code>.</p>
 <h3 id="another-example">Another example</h3>
 <div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
@@ -671,7 +668,7 @@ web services.</p>
 </code></pre></div>
 
 
-<p>Run <strong>app.nim</strong>. Now the server is running at localhost:8080.</p>
+<p>Run <strong>app.nim</strong> ( <code>nim c -r app.nim</code> ). Now the server is running at <code>localhost:8080</code>.</p>
 <h3 id="more-examples">More examples</h3>
 <ul>
 <li><a href="https://github.com/planety/prologue/tree/devel/examples/helloworld">HelloWorld</a></li>
@@ -682,11 +679,11 @@ web services.</p>
 </ul>
 <h3 id="extensions">Extensions</h3>
 <p>If you need more extensions, you can refer to <a href="https://github.com/planety/awesome-prologue">awesome prologue</a> and <a href="https://github.com/xflywind/awesome-nim#web">awesome nim</a>.</p>
-<h3 id="donate">Donate</h3>
+<h2 id="donate">Donate</h2>
 <p>Thanks for supporting me.</p>
 <p><a href="https://www.buymeacoffee.com/flywind">buy me a coffee</a></p>
 <p><a href="https://www.patreon.com/flywind">patreon</a></p>
-<h3 id="stars">Stars</h3>
+<h2 id="stars">Stars</h2>
 <p><a href="https://starchart.cc/planety/prologue"><img alt="Stargazers over time" src="https://starchart.cc/planety/prologue.svg" /></a></p>
                 
               
