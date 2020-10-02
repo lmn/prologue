@@ -347,15 +347,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#staticfileresponse" class="md-nav__link">
-    staticFileResponse
+  <a href="#send-static-file-response" class="md-nav__link">
+    Send static file Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-files" class="md-nav__link">
+    Download files
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#serve-static-files" class="md-nav__link">
-    serve static files
+    Serve static files
   </a>
   
 </li>
@@ -427,15 +434,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#staticfileresponse" class="md-nav__link">
-    staticFileResponse
+  <a href="#send-static-file-response" class="md-nav__link">
+    Send static file Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-files" class="md-nav__link">
+    Download files
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#serve-static-files" class="md-nav__link">
-    serve static files
+    Serve static files
   </a>
   
 </li>
@@ -455,14 +469,21 @@
                 
                 <h1 id="static-files">Static Files</h1>
 <p>Prologue supports serving static files.</p>
-<h2 id="staticfileresponse">staticFileResponse</h2>
+<h2 id="send-static-file-response">Send static file Response</h2>
 <p>You can use <code>staticFileResponse</code> to make a static file response.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">home</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;hello.html&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 
-<h2 id="serve-static-files">serve static files</h2>
+<h2 id="download-files">Download files</h2>
+<p>User maybe want to download some files from the server. You can use <code>staticFileResponse</code> to send the file to be downloaded. </p>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">downloadFile</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;index.html&quot;</span><span class="p">,</span> <span class="s">&quot;static&quot;</span><span class="p">,</span> <span class="n">downloadName</span> <span class="o">=</span> <span class="s">&quot;download.html&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2 id="serve-static-files">Serve static files</h2>
 <p>You can specify <code>Settings.staticDirs</code> attributes to serve multiple
 static dirs. <code>staticDirs</code> is of <code>seq[string]</code> type, it contains all
 the dirs of static files which will be checked in every request.</p>
