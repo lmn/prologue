@@ -398,12 +398,7 @@
                 <h1 id="faq">FAQ</h1>
 <ol>
 <li>
-<p>If you use Linux or MacOS, you can use <code>--threads:on</code> to enable the multi-threads HTTP server.</p>
-</li>
-<li>
-<p>If you use windows and want to use multi-threads HTTP server, make sure use
-latest Nim devel version and enable <code>--threads:on</code>. In this situation, you can
-use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi threads may be slower than single-thread in windows!</p>
+<p><code>Prologue</code> supports two HTTP server: <code>httpx</code> and <code>asynchttpserver</code>. The default HTTP server is <code>httpx</code>. If you are in Linux or MacOS, use <code>--threads:on</code> to enable the multi-threads HTTP server. If you are in windows, <code>threads</code> can't speed up the server. You can use <code>-d:usestd</code> to switch to <code>asynchttpserver</code>.</p>
 </li>
 <li>
 <p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
@@ -432,7 +427,9 @@ use <code>-d:usestd</code> to use <code>asynchttpserver</code>. Notes that multi
 </code></pre></div>
 
 
-<p>There are two ways to disable logging messages:</p>
+<ol>
+<li>There are two ways to disable logging messages:</li>
+</ol>
 <p>(1) set <code>settings.debug</code> = false
 (2) set a startup event</p>
 <div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
