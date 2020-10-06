@@ -15,7 +15,7 @@
     
     
       
-        <title>Headers - Prologue</title>
+        <title>Server Settings - Prologue</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#headers" class="md-skip">
+        <a href="#server-settings" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Headers
+              Server Settings
             
           </span>
         </div>
@@ -242,56 +242,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Headers
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../headers/" class="md-nav__link">
       Headers
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-headers-of-the-request" class="md-nav__link">
-    The headers of the request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-headers-of-the-response" class="md-nav__link">
-    The headers of the response
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -395,11 +350,49 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../server/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Server Settings
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Server Settings
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -439,15 +432,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-headers-of-the-request" class="md-nav__link">
-    The headers of the request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-headers-of-the-response" class="md-nav__link">
-    The headers of the response
+  <a href="#settings" class="md-nav__link">
+    Settings
   </a>
   
 </li>
@@ -465,37 +451,22 @@
               
                 
                 
-                <h1 id="headers">Headers</h1>
-<p>Prologue provides two types of <code>headers</code>. One is the headers of <code>request</code> which carries information from the client. The other is the headers of <code>response</code> which carries information sent to the client.</p>
-<h2 id="the-headers-of-the-request">The headers of the request</h2>
-<p>The client will send headers to our HTTP server. You may want to check whether some keys are in the headers. 
-If existing, you could get the values of them. The return type of <code>ctx.request.getHeader</code> is <code>seq[string]</code>. You often only need the first element of the sequence.</p>
-<p>The following code first checks whether the key exists in headers. If true, retrieve the sequence of values and display them in the browser.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
-  <span class="k">if</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">hasHeader</span><span class="p">(</span><span class="s">&quot;cookie&quot;</span><span class="p">):</span>
-    <span class="k">let</span> <span class="n">values</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">getHeader</span><span class="p">(</span><span class="s">&quot;cookie&quot;</span><span class="p">)</span>
-    <span class="n">resp</span> <span class="o">$</span><span class="n">values</span>
-  <span class="k">elif</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">hasHeader</span><span class="p">(</span><span class="s">&quot;content-type&quot;</span><span class="p">):</span>
-    <span class="k">let</span> <span class="n">values</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">getHeaderOrDefault</span><span class="p">(</span><span class="s">&quot;content&quot;</span><span class="p">)</span>
-    <span class="n">resp</span> <span class="o">$</span><span class="n">values</span>
+                <h1 id="server-settings">Server settings</h1>
+<p>Current implementation of <code>Prologue</code> supports two HTTP servers. Some settings may work in one of these backends, and won't work in the other backends. This is called additional settings.</p>
+<h2 id="settings">Settings</h2>
+<p>If you want to use <code>maxBody</code> attribute which only work in <code>asynchttpserver</code> backend, you can set them with <code>newSettings</code>. <code>newSettings</code> supports data of JSON format. You could use <code>getServerSettingsNameOrKey</code> to ignore the style of key. If key is not in additional settings in this backend, the origin key will be returned. If you want to get exception when key doesn't exist, you could use 
+<code>getServerSettingsName</code>.</p>
+<p>In <code>asynchttpserver</code> backend(namely <code>-d:usestd</code>), you can set <code>maxBody</code> attribute to respond 413 when the contentLength in HTTP headers is over limitation. <code>getServerSettingsNameOrKey</code> will return <code>max_body</code> in other backends.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="mi">8080</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="o">%*</span> <span class="p">{</span><span class="n">getServerSettingsNameOrKey</span><span class="p">(</span><span class="s">&quot;max_body&quot;</span><span class="p">):</span> <span class="mi">1000</span><span class="p">})</span>
 </code></pre></div>
 
 
-<h2 id="the-headers-of-the-response">The headers of the response</h2>
-<p><code>Prologue</code> also sends HTTP headers to the client. It uses <code>ResponseHeaders</code> to store them. It has similar API like the headers of the request. First, <code>Prologue</code> initializes <code>ctx.response</code> with <code>initResponseHeaders</code>. Then 
-users could use <code>hasHeader</code>, <code>addHeader</code> or <code>setHeader</code> to do what they want. </p>
-<p>Notes that, <code>addHeader</code> will append values to existing keys in headers. <code>setHeader</code> will reset the values of key no matter whether key is in the headers. </p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
-  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">addHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
-
-  <span class="n">doAssert</span> <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">getHeader</span><span class="p">(</span><span class="s">&quot;CONTENT-TYPE&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">@[</span>
-        <span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="o">]</span>
-
-  <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
-
-  <span class="n">doAssert</span> <span class="n">ctx</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">getHeader</span><span class="p">(</span><span class="s">&quot;CONTENT-TYPE&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">@[</span>
-      <span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="o">]</span>
+<p>or <code>getServerSettingsName</code>, it will raise exception if <code>maxBody</code> doesn't exist in this backend.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="mi">8080</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="o">%*</span> <span class="p">{</span><span class="n">getServerSettingsName</span><span class="p">(</span><span class="s">&quot;maxBody&quot;</span><span class="p">):</span> <span class="mi">1000</span><span class="p">})</span>
 </code></pre></div>
+
+
+<p>In <code>httpx</code> backend, you could set <code>numThreads</code> settings which only work in Unix OS. In windows this setting won't work, the number of threads will always be one. This setting allows user to configure how many threads to run the event loop.</p>
                 
               
               
@@ -514,7 +485,7 @@ users could use <code>hasHeader</code>, <code>addHeader</code> or <code>setHeade
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../errorhandler/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../session/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -523,19 +494,19 @@ users could use <code>hasHeader</code>, <code>addHeader</code> or <code>setHeade
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Error Handler
+                Session
               </div>
             </div>
           </a>
         
         
-          <a href="../request/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../faq/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Requests
+                FAQ
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
