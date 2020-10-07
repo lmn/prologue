@@ -409,15 +409,14 @@
                 
                 <h1 id="upload-files">Upload Files</h1>
 <p><code>getUploadFile</code> accepts the name of file input(HTNL) to get the info of file. The function returns the name and contents of the file. For this example, the name is "file". </p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;upload&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;upload&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;eva&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 
-
 <p><code>getUploadFile</code> only works when you use form parameters and HttpPost method. <code>Context</code> module provides a helper function to <code>save</code> the uploadFile to disks. If you don't specify the name of the file, it will use the origin name from user.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">upload</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">upload</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="k">if</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">reqMethod</span> <span class="o">==</span> <span class="n">HttpGet</span><span class="p">:</span>
     <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;tests/test_uploadFile/upload.html&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
   <span class="k">elif</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">reqMethod</span> <span class="o">==</span> <span class="n">HttpPost</span><span class="p">:</span>
@@ -426,7 +425,6 @@
     <span class="n">file</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;tests/test_uploadFile&quot;</span><span class="p">,</span> <span class="s">&quot;set.txt&quot;</span><span class="p">)</span>
     <span class="n">resp</span> <span class="s">fmt&quot;&lt;html&gt;&lt;h1&gt;{file.filename}&lt;/h1&gt;&lt;p&gt;{file.body}&lt;/p&gt;&lt;/html&gt;&quot;</span>
 </code></pre></div>
-
 
 <p>The full <a href="https://github.com/planety/prologue/blob/devel/tests/test_uploadFile">example</a></p>
                 

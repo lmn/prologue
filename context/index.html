@@ -455,10 +455,9 @@
 <p>Context is initialized when a new request enters. You can get the information of the whole Context when you are writing handlers.</p>
 <p>You can use attributes of context such as <code>request</code>, <code>response</code>, <code>session</code> and so on.</p>
 <p>For example, you can get the HTTP method of the request.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">login</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">login</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">doAssert</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">reqMethod</span> <span class="o">==</span> <span class="n">HttpPost</span>
 </code></pre></div>
-
 
 <h2 id="context-utils">Context utils</h2>
 <ul>

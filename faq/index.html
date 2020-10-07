@@ -416,7 +416,7 @@
 <p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="k">let</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">let</span>
   <span class="c"># debug attributes must be false</span>
   <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
   <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;appName&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">),</span>
@@ -427,9 +427,8 @@
     <span class="p">)</span>
 </code></pre></div>
 
-
 <p>or in <code>.env</code> file, set <code>debug = false</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
+<div class="nim codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
 <span class="c"># Eg. Make sure &quot;.env&quot; in your &quot;.gitignore&quot; file.</span>
 <span class="n">debug</span><span class="o">=</span><span class="kp">false</span> <span class="c"># change this</span>
 <span class="n">port</span><span class="o">=</span><span class="mi">8080</span>
@@ -438,13 +437,12 @@
 <span class="n">secretKey</span><span class="o">=</span><span class="n">Pr435ol67ogue</span>
 </code></pre></div>
 
-
 <ol>
 <li>There are two ways to disable logging messages:</li>
 </ol>
 <p>(1) set <code>settings.debug</code> = false
 (2) set a startup event</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
   <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
   <span class="n">logging</span><span class="p">.</span><span class="n">setLogFilter</span><span class="p">(</span><span class="n">lvlInfo</span><span class="p">)</span>
 

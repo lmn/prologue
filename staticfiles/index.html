@@ -483,30 +483,27 @@
 <p>Prologue supports serving static files.</p>
 <h2 id="send-static-file-response">Send static file Response</h2>
 <p>You can use <code>staticFileResponse</code> to make a static file response.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">home</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">home</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;hello.html&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="download-files">Download files</h2>
 <p>User maybe want to download some files from the server. You can use <code>staticFileResponse</code> to send the file to be downloaded. </p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">downloadFile</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">downloadFile</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">await</span> <span class="n">ctx</span><span class="p">.</span><span class="n">staticFileResponse</span><span class="p">(</span><span class="s">&quot;index.html&quot;</span><span class="p">,</span> <span class="s">&quot;static&quot;</span><span class="p">,</span> <span class="n">downloadName</span> <span class="o">=</span> <span class="s">&quot;download.html&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="serve-static-files">Serve static files</h2>
 <p>You can specify <code>Settings.staticDirs</code> attributes to serve multiple
 static dirs. <code>staticDirs</code> is of <code>seq[string]</code> type, it contains all
 the dirs of static files which will be checked in every request.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">let</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">let</span>
   <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
   <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="n">env</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;staticDir&quot;</span><span class="p">)</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Or set <code>staticDirs</code> directly:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;/static&quot;</span><span class="p">,</span> <span class="s">&quot;/templates&quot;</span><span class="o">]</span><span class="p">)</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">staticDirs</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;/static&quot;</span><span class="p">,</span> <span class="s">&quot;/templates&quot;</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
                 
               

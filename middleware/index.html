@@ -474,7 +474,7 @@ a request -&gt; middlewareA does something -&gt; middlewareB does something
 <p>Don't forget <code>await switch(ctx)</code> to enter next middleware or handler.</p>
 <p>Then you can set global middlewares which are visible to all handlers. Or you can make them only
 visible to some middlewares.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">logging</span>
+<div class="nim codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">logging</span>
 <span class="kn">import</span> <span class="n">prologue</span>
 
 
@@ -498,26 +498,23 @@ visible to some middlewares.</p>
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">myDebugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>You can also put some variables in closure environments, but be careful it is error-prone when using multi-threads. You must know the differences between GC options(thread local heap vs shared heap) and what's the use of <code>gcsafe</code>. </p>
-<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sessionMiddleware</span><span class="p">():</span> <span class="n">HandleAsync</span> <span class="o">=</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">sessionMiddleware</span><span class="p">():</span> <span class="n">HandleAsync</span> <span class="o">=</span>
   <span class="kd">var</span> <span class="n">memorySessionTable</span> <span class="o">=</span> <span class="n">newTable</span><span class="o">[</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="o">]</span><span class="p">()</span>
 
   <span class="n">result</span> <span class="o">=</span> <span class="k">proc</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
     <span class="n">memorySessionTable</span><span class="o">[</span><span class="s">&quot;test&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;prologue&quot;</span>
 </code></pre></div>
 
-
 <p>You can put your middleware plugin in <a href="https://github.com/planety/awesome-prologue">collections</a>.</p>
 <h2 id="use-a-middleware">Use a middleware</h2>
 <p><code>prologue</code> also supplies some middleware plugins, you can directly import <code>middlewares</code>.</p>
 <p>It contains <code>cors</code>, <code>clickjacking</code>, <code>csrf</code>, <code>utils</code> and <code>auth</code> middlewares.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span>
+<div class="nim codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span>
 </code></pre></div>
 
-
 <p>For better compilation time, you could import them directly.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">auth</span>
+<div class="nim codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">auth</span>
 <span class="c"># or</span>
 <span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">utils</span>
 <span class="c"># or</span>
@@ -527,7 +524,6 @@ visible to some middlewares.</p>
 <span class="c"># or</span>
 <span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">csrf</span>
 </code></pre></div>
-
 
 <p>For session middlewares, you need to import them directly.</p>
 <p><code>`
