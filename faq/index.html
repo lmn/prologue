@@ -408,14 +408,8 @@
                 
                 
                 <h1 id="faq">FAQ</h1>
-<ol>
-<li>
-<p><code>Prologue</code> supports two HTTP server: <code>httpx</code> and <code>asynchttpserver</code>. The default HTTP server is <code>httpx</code>. If you are in Linux or MacOS, use <code>--threads:on</code> to enable the multi-threads HTTP server. If you are in windows, <code>threads</code> can't speed up the server. You can use <code>-d:usestd</code> to switch to <code>asynchttpserver</code>.</p>
-</li>
-<li>
-<p>If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
-</li>
-</ol>
+<p>(1). <code>Prologue</code> supports two HTTP server: <code>httpx</code> and <code>asynchttpserver</code>. The default HTTP server is <code>httpx</code>. If you are in Linux or MacOS, use <code>--threads:on</code> to enable the multi-threads HTTP server. If you are in windows, <code>threads</code> can't speed up the server. You can use <code>-d:usestd</code> to switch to <code>asynchttpserver</code>.</p>
+<p>(2). If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
 <div class="nim codehilite"><pre><span></span><code><span class="k">let</span>
   <span class="c"># debug attributes must be false</span>
   <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
@@ -437,9 +431,7 @@
 <span class="n">secretKey</span><span class="o">=</span><span class="n">Pr435ol67ogue</span>
 </code></pre></div>
 
-<ol>
-<li>There are two ways to disable logging messages:</li>
-</ol>
+<p>(3). There are two ways to disable logging messages:</p>
 <p>(1) set <code>settings.debug</code> = false
 (2) set a startup event</p>
 <div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
