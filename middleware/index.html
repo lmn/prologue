@@ -467,11 +467,12 @@
                 
                 <h1 id="middlewares">Middlewares</h1>
 <h2 id="write-a-middleware">Write a middleware</h2>
-<p>Middleware is like an onion. 
-s
-a request -&gt; middlewareA does something -&gt; middlewareB does something
--&gt; handler does something -&gt; middlewareB does something -&gt; middlewareA does something -&gt; a response</p>
-<p>Don't forget <code>await switch(ctx)</code> to enter next middleware or handler.</p>
+<p>Middleware is like an onion.</p>
+<div class="codehilite"><pre><span></span><code>a request -&gt; middlewareA does something -&gt; middlewareB does something
+-&gt; handler does something -&gt; middlewareB does something -&gt; middlewareA does something -&gt; a response
+</code></pre></div>
+
+<p>Don't forget <code>await switch(ctx)</code> to enter the next middleware or handler.</p>
 <p>Then you can set global middlewares which are visible to all handlers. Or you can make them only
 visible to some middlewares.</p>
 <div class="nim codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">logging</span>

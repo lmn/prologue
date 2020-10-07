@@ -315,6 +315,61 @@
     Context utils
   </a>
   
+    <nav class="md-nav" aria-label="Context utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getpostparams" class="md-nav__link">
+    getPostParams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getqueryparams" class="md-nav__link">
+    getQueryParams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpathparams" class="md-nav__link">
+    getPathParams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresponse" class="md-nav__link">
+    setResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attachment" class="md-nav__link">
+    attachment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staticfileresponse" class="md-nav__link">
+    staticFileResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuploadfile" class="md-nav__link">
+    getUploadFile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -436,6 +491,61 @@
     Context utils
   </a>
   
+    <nav class="md-nav" aria-label="Context utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getpostparams" class="md-nav__link">
+    getPostParams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getqueryparams" class="md-nav__link">
+    getQueryParams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpathparams" class="md-nav__link">
+    getPathParams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresponse" class="md-nav__link">
+    setResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attachment" class="md-nav__link">
+    attachment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staticfileresponse" class="md-nav__link">
+    staticFileResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuploadfile" class="md-nav__link">
+    getUploadFile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -460,24 +570,20 @@
 </code></pre></div>
 
 <h2 id="context-utils">Context utils</h2>
-<ul>
-<li>getPostParams: gets the parameters by HttpPost.</li>
-<li>getQueryParams: gets the query strings(for example, "www.google.com/hello?name=12", <code>name=12</code>).</li>
-<li>
-<p>getPathParams: gets the route parameters(for example, "/hello/{name}").</p>
-</li>
-<li>
-<p>setResponse: it is handy to make the response of <code>ctx</code>.</p>
-</li>
-<li>attachment: <code>attachment</code> is used to specify the file will be downloaded.</li>
-<li>
-<p>staticFileResponse: serves static files.</p>
-</li>
-<li>
-<p>getUploadFile: gets the <code>UploadFile</code> from request.</p>
-</li>
-<li>save: saves the <code>UploadFile</code> to disk.</li>
-</ul>
+<h3 id="getpostparams">getPostParams</h3>
+<p>Gets the parameters by HttpPost.</p>
+<h3 id="getqueryparams">getQueryParams</h3>
+<p>Gets the query strings(for example, "www.google.com/hello?name=12", <code>name=12</code>).</p>
+<h3 id="getpathparams">getPathParams</h3>
+<p>Gets the route parameters(for example, "/hello/{name}").</p>
+<h3 id="setresponse">setResponse</h3>
+<p>It is handy to make the response of <code>ctx</code>.</p>
+<h3 id="attachment">attachment</h3>
+<p><code>attachment</code> is used to specify the file will be downloaded.</p>
+<h3 id="staticfileresponse">staticFileResponse</h3>
+<p>Returns static files response.</p>
+<h3 id="getuploadfile">getUploadFile</h3>
+<p>Gets the <code>UploadFile</code> from request. <code>UploadFile</code> can be saved to disk using <code>save</code> function.</p>
                 
               
               
