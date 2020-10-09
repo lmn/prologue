@@ -344,6 +344,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#group-route" class="md-nav__link">
+    Group Route
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -473,6 +480,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#group-route" class="md-nav__link">
+    Group Route
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -525,6 +539,45 @@
   <span class="n">resp</span> <span class="o">$</span><span class="n">ctx</span><span class="p">.</span><span class="n">getPathParams</span><span class="p">(</span><span class="s">&quot;num&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">re&quot;/post(?P&lt;num&gt;[\d]+)&quot;</span><span class="p">,</span> <span class="n">articles</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="group-route">Group Route</h3>
+<p><code>Prologue</code> supports group route. You can add arbitrary levels of route.</p>
+<div class="nim codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">newSettings</span><span class="p">())</span>
+<span class="kd">var</span> <span class="n">base</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/apiv2&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">level1</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="s">&quot;/level1&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">level2</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/level2&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">level1</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">level3</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/level3&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">level2</span><span class="p">)</span>
+
+
+<span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;Hello&quot;</span>
+
+<span class="k">proc </span><span class="nf">hi</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;Hi&quot;</span>
+
+<span class="k">proc </span><span class="nf">home</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">resp</span> <span class="s">&quot;Home&quot;</span>
+
+<span class="c"># /apiv2/hello</span>
+<span class="n">base</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">base</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hi&quot;</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+<span class="n">base</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span><span class="p">)</span>
+
+<span class="c"># /apiv2/level1/hello</span>
+<span class="n">level1</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">level1</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hi&quot;</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+<span class="n">level1</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span><span class="p">)</span>
+
+<span class="c"># /apiv2/level1/level2/hello</span>
+<span class="n">level2</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">level2</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hi&quot;</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+<span class="n">level2</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span><span class="p">)</span>
+
+<span class="c"># /apiv2/level1/level2/level3/hello</span>
+<span class="n">level3</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">level3</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/hi&quot;</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+<span class="n">level3</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">&quot;/home&quot;</span><span class="p">,</span> <span class="n">home</span><span class="p">)</span>
 </code></pre></div>
                 
               
