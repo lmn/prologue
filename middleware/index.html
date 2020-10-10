@@ -493,9 +493,9 @@ visible to some middlewares.</p>
 
 <span class="kd">var</span>
   <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
-  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">myDebugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">)</span>
+  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
 
-
+<span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">myDebugRequestMiddleware</span><span class="p">())</span>
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">myDebugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
 

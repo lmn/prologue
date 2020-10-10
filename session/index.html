@@ -472,8 +472,9 @@
 <p>Prologue provides <code>sessionMiddleware</code> to you.</p>
 <h2 id="usage">Usage</h2>
 <p>First you should register <code>sessionMiddleware</code> in global middlewares or handler's middlewares.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">,</span> 
-                 <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">secretKey</span> <span class="o">=</span> <span class="n">secretKey</span><span class="p">.</span><span class="n">SecretKey</span><span class="p">)</span><span class="o">]</span><span class="p">)</span>
+<div class="nim codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
 </code></pre></div>
 
 <p>Then you can use session in all handlers. You can set/get/clear session.</p>
