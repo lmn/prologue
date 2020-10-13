@@ -362,6 +362,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../websocket/" class="md-nav__link">
+      WebSocket
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -410,7 +422,7 @@
                 <h1 id="faq">FAQ</h1>
 <p>(1). <code>Prologue</code> supports two HTTP server: <code>httpx</code> and <code>asynchttpserver</code>. The default HTTP server is <code>httpx</code>. If you are in Linux or MacOS, use <code>--threads:on</code> to enable the multi-threads HTTP server. If you are in windows, <code>threads</code> can't speed up the server. You can use <code>-d:usestd</code> to switch to <code>asynchttpserver</code>.</p>
 <p>(2). If you want to benchmark <code>prologue</code> or release you programs, make sure set <code>settings.debug</code> = false.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">let</span>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span>
   <span class="c"># debug attributes must be false</span>
   <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
   <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;appName&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">),</span>
@@ -422,7 +434,7 @@
 </code></pre></div>
 
 <p>or in <code>.env</code> file, set <code>debug = false</code>.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
+<div class="codehilite"><pre><span></span><code><span class="c"># Don&#39;t commit this to source control.</span>
 <span class="c"># Eg. Make sure &quot;.env&quot; in your &quot;.gitignore&quot; file.</span>
 <span class="n">debug</span><span class="o">=</span><span class="kp">false</span> <span class="c"># change this</span>
 <span class="n">port</span><span class="o">=</span><span class="mi">8080</span>
@@ -434,7 +446,7 @@
 <p>(3). There are two ways to disable logging messages:</p>
 <p>(1) set <code>settings.debug</code> = false
 (2) set a startup event</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">setLoggingLevel</span><span class="p">()</span> <span class="o">=</span>
   <span class="n">addHandler</span><span class="p">(</span><span class="n">newConsoleLogger</span><span class="p">())</span>
   <span class="n">logging</span><span class="p">.</span><span class="n">setLogFilter</span><span class="p">(</span><span class="n">lvlInfo</span><span class="p">)</span>
 
@@ -462,7 +474,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../server/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../websocket/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -471,7 +483,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Server Settings
+                WebSocket
               </div>
             </div>
           </a>

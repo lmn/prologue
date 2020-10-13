@@ -429,6 +429,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../websocket/" class="md-nav__link">
+      WebSocket
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" class="md-nav__link">
       FAQ
     </a>
@@ -510,7 +522,7 @@
 <h2 id="static-route">Static Route</h2>
 <p>Registering handler <code>hello</code> by specifying path, HTTP methods and middlewares.</p>
 <p><code>HttpGet</code> is the default HTTP methods. If you have registered a handler with <code>HttpGet</code>, <code>Prologue</code> will automatically register <code>HttpHead</code> for this handler.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="c"># handler</span>
+<div class="codehilite"><pre><span></span><code><span class="c"># handler</span>
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
 
@@ -518,7 +530,7 @@
 </code></pre></div>
 
 <p>You can also use <code>seq[httpMetod]</code> to register the same handler but supports multiple HTTP methods.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="c"># handler</span>
+<div class="codehilite"><pre><span></span><code><span class="c"># handler</span>
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
 
@@ -527,7 +539,7 @@
 
 <h2 id="parameters-route">Parameters Route</h2>
 <p><code>Prologue</code> supports parameters route. You can use <code>getPathParams</code> to get named arguments.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">helloName</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">helloName</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, &quot;</span> <span class="o">&amp;</span> <span class="n">ctx</span><span class="p">.</span><span class="n">getPathParams</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">&quot;&lt;/h1&gt;&quot;</span>
 
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/hello/{name}&quot;</span><span class="p">,</span> <span class="n">helloName</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">)</span>
@@ -535,7 +547,7 @@
 
 <h3 id="regex-route">Regex Route</h3>
 <p><code>Prologue</code> supports regex route.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">articles</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">articles</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="o">$</span><span class="n">ctx</span><span class="p">.</span><span class="n">getPathParams</span><span class="p">(</span><span class="s">&quot;num&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">re&quot;/post(?P&lt;num&gt;[\d]+)&quot;</span><span class="p">,</span> <span class="n">articles</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">)</span>
@@ -543,7 +555,7 @@
 
 <h3 id="group-route">Group Route</h3>
 <p><code>Prologue</code> supports group route. You can add arbitrary levels of route.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">newSettings</span><span class="p">())</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">newSettings</span><span class="p">())</span>
 <span class="kd">var</span> <span class="n">base</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/apiv2&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">)</span>
 <span class="kd">var</span> <span class="n">level1</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="s">&quot;/level1&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
 <span class="kd">var</span> <span class="n">level2</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/level2&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">level1</span><span class="p">)</span>

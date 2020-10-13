@@ -471,6 +471,18 @@
 
 
   <li class="md-nav__item">
+    <a href="websocket/" class="md-nav__link">
+      WebSocket
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="faq/" class="md-nav__link">
       FAQ
     </a>
@@ -624,13 +636,13 @@ It is ideal for building elegant and high performance web services.</p>
 <h2 id="installation">Installation</h2>
 <p>First you should install <a href="https://nim-lang.org/">Nim</a> language which is an elegant and high performance language. Follow the <a href="https://nim-lang.org/install.html">instructions</a> and set environment variables correctly.</p>
 <p>Then you can use <code>nimble</code> command to install prologue.</p>
-<div class="bash codehilite"><pre><span></span><code>nimble install prologue
+<div class="codehilite"><pre><span></span><code>nimble install prologue
 </code></pre></div>
 
 <p><code>Prologue</code> also provides some extensions. You can use <code>logue extension</code> to install all of them. If you just want to install one of them, you can use <code>logue extension module</code> for example <code>logue extension redis</code>.</p>
 <h2 id="usage">Usage</h2>
 <h3 id="hello-world">Hello World</h3>
-<div class="nim codehilite"><pre><span></span><code><span class="c"># app.nim</span>
+<div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
 
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
@@ -643,7 +655,7 @@ It is ideal for building elegant and high performance web services.</p>
 
 <p>Run <strong>app.nim</strong> ( <code>nim c -r app.nim</code> ). Now the server is running at <code>localhost:8080</code>.</p>
 <h3 id="another-example">Another example</h3>
-<div class="nim codehilite"><pre><span></span><code><span class="c"># app.nim</span>
+<div class="codehilite"><pre><span></span><code><span class="c"># app.nim</span>
 <span class="kn">import</span> <span class="n">prologue</span>
 <span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span>
 

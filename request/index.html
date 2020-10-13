@@ -450,6 +450,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../websocket/" class="md-nav__link">
+      WebSocket
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" class="md-nav__link">
       FAQ
     </a>
@@ -550,7 +562,7 @@
                 <h1 id="request">Request</h1>
 <p><code>Request</code> contains the information from the HTTP server. You can visit this attribute by using <code>ctx.request</code>.</p>
 <p>for example, you maybe want to get state from users, you can query the <code>cookies</code> attribute.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="k">if</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">cookies</span><span class="p">.</span><span class="n">hasKey</span><span class="p">(</span><span class="s">&quot;happy&quot;</span><span class="p">):</span>
     <span class="n">echo</span> <span class="s">&quot;Yea, I&#39;m happy&quot;</span>
 </code></pre></div>
@@ -558,37 +570,37 @@
 <h2 id="request-utils">Request utils</h2>
 <h3 id="requesturl">request.url</h3>
 <p>Gets the url of the request.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">echo</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">url</span>
 </code></pre></div>
 
 <h3 id="requestport">request.port</h3>
 <p>Gets the port of the request.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">echo</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">port</span><span class="p">.</span><span class="kt">int</span>
 </code></pre></div>
 
 <h3 id="requestpath">request.path</h3>
 <p>Gets the path of the request.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">echo</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">path</span>
 </code></pre></div>
 
 <h3 id="requestreqmethod">request.reqMethod</h3>
 <p>Gets the <code>HttpMethod</code> of the request.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">echo</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">reqMethod</span>
 </code></pre></div>
 
 <h3 id="requestcontenttype">request.contentType</h3>
 <p>Gets the contentType of the request.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">echo</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">contentType</span>
 </code></pre></div>
 
 <h3 id="requesthostname">request.hostName</h3>
 <p>Gets the hostname of the request.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">echo</span> <span class="n">ctx</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">hostName</span>
 </code></pre></div>
                 

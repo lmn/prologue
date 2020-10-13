@@ -409,6 +409,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../websocket/" class="md-nav__link">
+      WebSocket
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../faq/" class="md-nav__link">
       FAQ
     </a>
@@ -472,13 +484,13 @@
 <p>Prologue provides <code>sessionMiddleware</code> to you.</p>
 <h2 id="usage">Usage</h2>
 <p>First you should register <code>sessionMiddleware</code> in global middlewares or handler's middlewares.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
 <span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
 <span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
 </code></pre></div>
 
 <p>Then you can use session in all handlers. You can set/get/clear session.</p>
-<div class="nim codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">login</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+<div class="codehilite"><pre><span></span><code><span class="k">proc </span><span class="nf">login</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">ctx</span><span class="p">.</span><span class="n">session</span><span class="o">[</span><span class="s">&quot;flywind&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;123&quot;</span>
   <span class="n">ctx</span><span class="p">.</span><span class="n">session</span><span class="o">[</span><span class="s">&quot;ordontfly&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;345&quot;</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
