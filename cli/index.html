@@ -15,7 +15,7 @@
     
     
       
-        <title>Command line tool - Prologue</title>
+        <title>Command Line Tool - Prologue</title>
       
     
     
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Command line tool
+              Command Line Tool
             
           </span>
         </div>
@@ -386,6 +386,63 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Command Line Tool
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Command Line Tool
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creates-a-new-project" class="md-nav__link">
+    Creates a new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-extensions" class="md-nav__link">
+    Install the extensions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
 
   <li class="md-nav__item">
     <a href="../faq/" class="md-nav__link">
@@ -411,6 +468,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creates-a-new-project" class="md-nav__link">
+    Creates a new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-extensions" class="md-nav__link">
+    Install the extensions
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -423,6 +502,26 @@
                 
                 
                 <h1 id="command-line-tool">Command line tool</h1>
+<p><code>Prologue</code> ships with <code>logue</code> tool to help you start a new project quickly.</p>
+<h2 id="creates-a-new-project">Creates a new project</h2>
+<p>Type <code>logue init projectName</code> in command line to create a new project. This will create <code>.env</code> file for configuration. If you want to use JSON format config file, please add <code>--useConfig</code> or <code>-u</code> to the command.</p>
+<div class="codehilite"><pre><span></span><code>logue init newapp
+</code></pre></div>
+
+<p>Using json config:</p>
+<div class="codehilite"><pre><span></span><code>logue init newapp --useConfig
+# or
+logue init newapp -u
+</code></pre></div>
+
+<h2 id="install-the-extensions">Install the extensions</h2>
+<p>Type <code>logue extension extensionName</code> to install the specific extension which is specified in <code>prologue.nimble</code>. If you want to install all the extensions, please input <code>logue extension all</code>.</p>
+<div class="codehilite"><pre><span></span><code>logue extension redis
+</code></pre></div>
+
+<p>Install all the extensions:</p>
+<div class="codehilite"><pre><span></span><code>logue extension all
+</code></pre></div>
                 
               
               
@@ -437,6 +536,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../websocket/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                WebSocket
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../faq/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                FAQ
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
