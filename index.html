@@ -327,6 +327,18 @@
 
 
   <li class="md-nav__item">
+    <a href="configure/" class="md-nav__link">
+      Confugure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="event/" class="md-nav__link">
       Event
     </a>
@@ -648,7 +660,7 @@ It is ideal for building elegant and high performance web services.</p>
 <span class="k">proc </span><span class="nf">hello</span><span class="o">*</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
   <span class="n">resp</span> <span class="s">&quot;&lt;h1&gt;Hello, Prologue!&lt;/h1&gt;&quot;</span>
 
-<span class="k">let</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">())</span>
+<span class="k">let</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">()</span>
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
 <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
@@ -689,7 +701,7 @@ It is ideal for building elegant and high performance web services.</p>
 <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
 
-<p>Run <strong>app.nim</strong> ( <code>nim c -r app.nim</code> ). Now the server is running at <code>localhost:8080</code>.</p>
+<p>Run <strong>app.nim</strong> (<code>nim c -r app.nim</code>). Now the server is running at <code>localhost:8080</code>.</p>
 <h3 id="more-examples">More examples</h3>
 <ul>
 <li><a href="https://github.com/planety/prologue/tree/devel/examples/helloworld">HelloWorld</a></li>

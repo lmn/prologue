@@ -220,6 +220,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../configure/" class="md-nav__link">
+      Confugure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../event/" class="md-nav__link">
       Event
     </a>
@@ -503,9 +515,7 @@ visible to some middlewares.</p>
     <span class="n">logging</span><span class="p">.</span><span class="n">info</span> <span class="s">&quot;debugRequestMiddleware-&gt;End&quot;</span>
 
 
-<span class="kd">var</span>
-  <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
-  <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">()</span>
 
 <span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">myDebugRequestMiddleware</span><span class="p">())</span>
 <span class="n">app</span><span class="p">.</span><span class="n">addRoute</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">HttpGet</span><span class="p">,</span> <span class="n">middlewares</span> <span class="o">=</span> <span class="o">@[</span><span class="n">myDebugRequestMiddleware</span><span class="p">()</span><span class="o">]</span><span class="p">)</span>

@@ -220,6 +220,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../configure/" class="md-nav__link">
+      Confugure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../event/" class="md-nav__link">
       Event
     </a>
@@ -555,7 +567,7 @@
 
 <h3 id="group-route">Group Route</h3>
 <p><code>Prologue</code> supports group route. You can add arbitrary levels of route.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">newSettings</span><span class="p">())</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">()</span>
 <span class="kd">var</span> <span class="n">base</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/apiv2&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">)</span>
 <span class="kd">var</span> <span class="n">level1</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="s">&quot;/level1&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
 <span class="kd">var</span> <span class="n">level2</span> <span class="o">=</span> <span class="n">newGroup</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;/level2&quot;</span><span class="p">,</span> <span class="o">@[]</span><span class="p">,</span> <span class="n">level1</span><span class="p">)</span>

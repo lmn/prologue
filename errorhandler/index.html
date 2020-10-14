@@ -220,6 +220,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../configure/" class="md-nav__link">
+      Confugure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../event/" class="md-nav__link">
       Event
     </a>
@@ -532,8 +544,7 @@ You may want to use user-defined 404 pages, then you can use <code>resp</code> t
 </code></pre></div>
 
 <p>If you don't want to use the default Error handler, you could clear the whole error handler table.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
-<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">,</span> <span class="n">errorHandlerTable</span> <span class="o">=</span> <span class="n">newErrorHandlerTable</span><span class="p">())</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">errorHandlerTable</span> <span class="o">=</span> <span class="n">newErrorHandlerTable</span><span class="p">())</span>
 </code></pre></div>
 
 <h2 id="http-500-handler">HTTP 500 handler</h2>

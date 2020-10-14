@@ -15,7 +15,7 @@
     
     
       
-        <title>Configure - Prologue</title>
+        <title>Confugure - Prologue</title>
       
     
     
@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Configure
+              Confugure
             
           </span>
         </div>
@@ -206,6 +211,63 @@
     <a href="../application/" class="md-nav__link">
       Application
     </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Confugure
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Confugure
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simple-settings" class="md-nav__link">
+    Simple settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    Config file
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -384,15 +446,119 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simple-settings" class="md-nav__link">
+    Simple settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    Config file
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Configure</h1>
-                
-                
+                <h1 id="configuration">Configuration</h1>
+<p>When starting a project, you need to configure your application.</p>
+<h2 id="simple-settings">Simple settings</h2>
+<p>For small program, you could use the default <code>settings</code> which is provided by <code>Prologue</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">()</span>
+<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>You may want to specify settings by yourself. <code>Prologue</code> provides <code>newSettings</code> function to create a new settings. The program below creates a new settings with <code>debug = false</code>. This will disable the default logging.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+
+<span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">debug</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>You can also read settings from <code>.env</code> file. <code>Prologue</code> provides <code>loadPrologueEnv</code> to read data from <code>.env</code> file. You can use <code>get</code> or <code>getOrDefault</code> to retrieve the value.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+
+<span class="k">let</span>
+  <span class="n">env</span> <span class="o">=</span> <span class="n">loadPrologueEnv</span><span class="p">(</span><span class="s">&quot;.env&quot;</span><span class="p">)</span>
+  <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;appName&quot;</span><span class="p">,</span> <span class="s">&quot;Prologue&quot;</span><span class="p">),</span>
+                         <span class="n">debug</span> <span class="o">=</span> <span class="kp">false</span><span class="p">,</span>
+                         <span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">getOrDefault</span><span class="p">(</span><span class="s">&quot;port&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+    <span class="p">)</span>
+
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="config-file">Config file</h2>
+<p>You need to specify a config file for a big project. <code>Prologue</code> provides <code>loadSettings</code> to read JSON file. You should give the path of the Json config file.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">loadSettings</span><span class="p">(</span><span class="s">&quot;.config/config.debug.json&quot;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+</code></pre></div>
+
+<p><code>.config/config.debug.json</code></p>
+<p>In config file, the <code>prologue</code> key must be present. The corresponding data will be used by framework. Among the corresponding data, the <code>secretKey</code> must be present and should not be empty. Otherwise, the program will raise exception. Other keys can be absent, they will be given a default value setting by <code>Prologue</code>.</p>
+<p>Below is the type of settings:</p>
+<div class="codehilite"><pre><span></span><code>address: string
+port: int
+debug: bool
+reusePort: bool
+appName: string
+secretKey: string
+bufSize: int
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;prologue&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span>
+    <span class="nt">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;reusePort&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;appName&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;secretKey&quot;</span><span class="p">:</span> <span class="s2">&quot;Set by yourself&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bufSize&quot;</span><span class="p">:</span> <span class="mi">40960</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;debug&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><code>Prologue</code> also supports automatically loading configure file by environment variables. The <code>.config</code> directory must be present in the current path(in the same directory as the main program). If you don't set the environment variable(namely <code>PROLOGUE</code>) or the value is <code>default</code>, the application will read <code>.config/config.json</code> file. Otherwise, if you set the <code>PROLOGUE</code> environment variable to <code>custom</code>, the application will read <code>.config/config.custom.json</code>. The common names includes <code>debug</code> and <code>production</code>. If the file doesn't exist, it will raise exception.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newAppQueryEnv</span><span class="p">()</span>
+<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
                 
               
               
@@ -407,6 +573,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../application/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Application
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../event/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Event
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
