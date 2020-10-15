@@ -387,11 +387,38 @@
     Session based on signed cookie
   </a>
   
+    <nav class="md-nav" aria-label="Session based on signed cookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
+  <a href="#session-based-on-memory" class="md-nav__link">
+    Session based on memory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-based-on-redis" class="md-nav__link">
+    Session based on redis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash-messages" class="md-nav__link">
+    Flash messages
   </a>
   
 </li>
@@ -479,11 +506,38 @@
     Session based on signed cookie
   </a>
   
+    <nav class="md-nav" aria-label="Session based on signed cookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
+  <a href="#session-based-on-memory" class="md-nav__link">
+    Session based on memory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-based-on-redis" class="md-nav__link">
+    Session based on redis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash-messages" class="md-nav__link">
+    Flash messages
   </a>
   
 </li>
@@ -502,13 +556,16 @@
                 
                 
                 <h1 id="session">Session</h1>
-<p>The session helps with storing users' state.</p>
+<p>The session helps with storing users' state. If you want to use <code>session</code> or <code>flash</code> messages, you must use <code>sessionMiddleware</code> first.</p>
 <h2 id="session-based-on-signed-cookie">Session based on signed cookie</h2>
 <p>This session is based on signed cookie. <strong>It is not safe</strong>. You must not use it to store sensitive or important info except for testing.</p>
-<p>Prologue provides <code>sessionMiddleware</code> to you.</p>
-<h2 id="usage">Usage</h2>
+<p>Prologue provides you with <code>sessionMiddleware</code>.</p>
+<h3 id="usage">Usage</h3>
 <p>First you should register <code>sessionMiddleware</code> in global middlewares or handler's middlewares.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+<span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">sessions</span><span class="o">/</span><span class="n">signedcookiesession</span>
+
+<span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
 <span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">)</span>
 <span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
 </code></pre></div>
@@ -524,6 +581,56 @@
 </code></pre></div>
 
 <p>More session examples are in <a href="https://github.com/planety/prologue/tree/devel/examples/session">Session</a> and <a href="https://github.com/planety/prologue/tree/devel/examples/blog">Blog</a></p>
+<h2 id="session-based-on-memory">Session based on memory</h2>
+<p>The usage of memory session is similar to signed cookie session. Just change the import statement to <code>import prologue/middlewares/sessions/memorysession</code>. This is meant for testing too. Because the data will be lost if the program stops.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+<span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">sessions</span><span class="o">/</span><span class="n">memorysession</span>
+
+
+<span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
+</code></pre></div>
+
+<h2 id="session-based-on-redis">Session based on redis</h2>
+<p>You should install <code>redis</code> first(<code>logue extension redis</code>).</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">prologue</span>
+<span class="kn">import</span> <span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">sessions</span><span class="o">/</span><span class="n">redissession</span>
+
+
+<span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
+</code></pre></div>
+
+<h2 id="flash-messages">Flash messages</h2>
+<p>Sometimes you need to store some messages to session, then you can visit these messages in the next request. They will be used once. Once you have visit these messages, they will be popped from the session. You must use one of session middleware above.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">src</span><span class="o">/</span><span class="n">prologue</span>
+<span class="kn">import</span> <span class="n">src</span><span class="o">/</span><span class="n">prologue</span><span class="o">/</span><span class="n">middlewares</span><span class="o">/</span><span class="n">signedcookiesession</span>
+<span class="kn">import</span> <span class="n">std</span><span class="o">/</span><span class="n">with</span>
+
+
+<span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="n">ctx</span><span class="p">.</span><span class="n">flash</span><span class="p">(</span><span class="s">&quot;Please retry again!&quot;</span><span class="p">)</span>
+  <span class="n">resp</span> <span class="s">&quot;Hello, world&quot;</span>
+
+<span class="k">proc </span><span class="nf">tea</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{.</span><span class="n">async</span><span class="p">.}</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">.</span><span class="n">getFlashedMsg</span><span class="p">(</span><span class="n">FlashLevel</span><span class="p">.</span><span class="n">Info</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">msg</span><span class="p">.</span><span class="n">isSome</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="s">&quot;My tea&quot;</span>
+
+<span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">newSettings</span><span class="p">()</span>
+<span class="kd">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApp</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+<span class="n">with</span> <span class="n">app</span><span class="p">:</span>
+  <span class="n">use</span><span class="p">(</span><span class="n">sessionMiddleware</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
+  <span class="n">get</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+  <span class="n">get</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+  <span class="n">get</span><span class="p">(</span><span class="s">&quot;/tea&quot;</span><span class="p">,</span> <span class="n">tea</span><span class="p">)</span>
+  <span class="n">run</span><span class="p">()</span>
+</code></pre></div>
                 
               
               
